@@ -5,10 +5,12 @@ import UpdatePage from "./pages/UpdatePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import Nav from "./components/Nav";
+import TopBar from "./components/TopBar";
 
 function App() {
   return (
     <main>
+      <TopBar />
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
