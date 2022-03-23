@@ -22,18 +22,20 @@ export default function HomePage() {
   return (
     <section className="page">
       <section className="card">
-              <WelcomeCard />
+        <WelcomeCard />
       </section>
       <h1>HomePage</h1>
-      <section className="grid-container">
-        {tasks.map(
-          (
-            task //til at kigge på array
-          ) => (
-            <PostCard task={task} key={task.id} /> //
-          )
-        )}
-      </section>
+      <div className="group-contr">
+        <section className="grid-container">
+          {tasks.map(
+            (
+              task //til at kigge på array
+            ) => (
+              <PostCard task={task} key={task.id} /> //
+            )
+          )}
+        </section>
+      </div>
     </section>
   );
 }
