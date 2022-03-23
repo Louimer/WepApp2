@@ -3,14 +3,6 @@ import { useNavigate } from "react-router-dom";
 export default function PostCard({ task }) {
   const navigate = useNavigate();
 
-  function handleDelete() {
-    const confirmDelete = window.confirm(`Delete, ${post.title}?`);
-    if (confirmDelete) {
-      const docRef = doc(postsRef, post.id);
-      deleteDoc(docRef);
-    }
-  }
-
   function handleClick() {
     navigate(`tasks/${task.id}`);
   }
