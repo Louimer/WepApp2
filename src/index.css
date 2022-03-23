@@ -7,6 +7,7 @@
   --text-color-dark: #333;
   --text-color-danger: rgb(152, 58, 58);
   --white: #f1f1f1;
+  --border-r: 10px;
 }
 
 body {
@@ -109,6 +110,7 @@ a {
   display: flex;
   flex-direction: row;
   background-color: var(--white);
+  border-radius: var(--border-r);
 }
 
 .welcome-userimg {
@@ -245,7 +247,8 @@ nav a.active {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  border: solid red 0px;
+  border: solid #7da8b6 2px;
+  border-radius: var(--border-r);
 }
 
 .group-cntr > article {
@@ -265,10 +268,25 @@ nav a.active {
   background-color: rgb(125, 168, 182);
 }
 
+.group-cntr > article:first-child {
+  border-top-left-radius: var(--border-r);
+  border-top-right-radius: var(--border-r);
+}
+
+.group-cntr > article:last-child {
+  border-bottom-left-radius: var(--border-r);
+  border-bottom-right-radius: var(--border-r);
+}
+
 
 /* ---------- grid container styling ---------- */
 .grid-container {
   padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.outer-cntr {
   display: flex;
   flex-direction: column;
 }
@@ -288,53 +306,19 @@ nav a.active {
 @media (min-width: 992px) {
   .grid-container {
     flex-direction: row;
+    justify-content: space-between;
+  }
+  .outer-cntr {
+    width: 45%;
   }
 }
 
-.grid-container > article img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-
-/* .grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-}
-
-@media (min-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 992px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.grid-container > article {
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  padding: 1.5em;
-  background-color: var(--white);
-  transition: 0.5s;
-  animation: fadeIn 0.5s;
-  cursor: pointer;
-}
-
-.grid-container > article:hover {
-  box-shadow: 0 8px 16px 0 var(--green);
-}
-
-.grid-container > article img {
+/* .grid-container > article img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 } */
+
 
 /* ---------- form styling ---------- */
 form {
