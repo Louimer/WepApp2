@@ -68,6 +68,18 @@ a {
   text-transform: uppercase;
 }
 
+
+/* ---------- LOGO ---------- */
+.logo {
+  font-family: "Filson Soft", sans-serif;
+  text-transform: uppercase;
+}
+
+.logo span {
+  font-weight: bold;
+}
+
+
 /* ---------- WELCOMECARD ---------- */
 .welcome-card {
   margin-bottom: 10px;
