@@ -33,3 +33,4 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 export const tasksRef = collection(db, "task");
+export const usersRef = collection(db, "usersRef");

@@ -68,6 +68,47 @@ a {
   text-transform: uppercase;
 }
 
+/* ---------- WELCOMECARD ---------- */
+.welcome-card {
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--white);
+}
+
+.welcome-userimg {
+  height: auto;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-img img {
+  max-width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: solid #000 1px;
+}
+
+.welcome-msg {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px 10px 5px 10px;
+}
+
+.welcome-msg h2 {
+  margin: 0px 0px 10px 0px;
+}
+
+.welcome-msg p {
+  margin: 0;
+}
+
+
 /* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
