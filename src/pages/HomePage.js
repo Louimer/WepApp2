@@ -2,6 +2,7 @@ import { tasksRef } from "../firebase-config";
 import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime updates. Snakker sammen med en constant -
 import { useState, useEffect } from "react";
 import PostCard from "../components/PostCard";
+import WelcomeCard from "../components/WelcomeCard";
 
 export default function HomePage() {
   const [tasks, setTasks] = useState([]); //gemmer alt data i et state
@@ -20,6 +21,9 @@ export default function HomePage() {
 
   return (
     <section className="page">
+      <section className="card">
+              <WelcomeCard />
+      </section>
       <h1>HomePage</h1>
       <section className="grid-container">
         {tasks.map(
