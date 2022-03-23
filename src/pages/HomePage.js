@@ -3,7 +3,7 @@ import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime upd
 import { useState, useEffect } from "react";
 import PostCard from "../components/PostCard";
 
-export default function PostPage() {
+export default function HomePage() {
   const [tasks, setTasks] = useState([]); //gemmer alt data i et state
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function PostPage() {
 
   return (
     <section className="page">
-      <h1>PostPage</h1>
+      <h1>HomePage</h1>
       <section className="grid-container">
         {tasks.map(
           (

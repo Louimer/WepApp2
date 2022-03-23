@@ -40,12 +40,8 @@ export default function TaskForm() {
           value={list}
           onChange={(e) => setList(e.target.value)}
         >
-          <option name="Gruppeliste" value="GroupList">
-            Gruppeliste
-          </option>
-          <option name="Min liste" value="MyList">
-            Din liste
-          </option>
+          <option value="Gruppe">Gruppeliste</option>
+          <option value="Personlig">Din liste</option>
         </select>
       </label>
       <br></br>
@@ -56,8 +52,8 @@ export default function TaskForm() {
           value={share}
           onChange={(e) => setShare(e.target.value)}
         >
-          <option value="shared">Fordeles mellem gruppemedlemmer</option>
-          <option value="assigned">Tildeles bestemt person</option>
+          <option value="Deles">Fordeles mellem gruppemedlemmer</option>
+          <option value="Tildeles">Tildeles bestemt person</option>
         </select>
       </label>
       <br></br>

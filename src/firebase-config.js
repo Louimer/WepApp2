@@ -16,6 +16,7 @@
 
 // export const usersRef = collection(db, "users");
 // export const postsRef = collection(db, "posts"); //reference til firebase. Ref til biblioteket er collections. databasen defineres i parentesen (db, "data der skal hentes")
+
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection } from "firebase/firestore";
 
