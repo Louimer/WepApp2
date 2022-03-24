@@ -25,8 +25,9 @@ export default function HomePage() {
         <WelcomeCard />
       </section>
       <h1>HomePage</h1>
-      <div className="group-contr">
-        <section className="grid-container">
+      <section className="grid-container">
+        <h2 className="cntr-title">Gruppe opgaver</h2>
+        <div className="group-cntr">
           {tasks.map(
             (
               task //til at kigge på array
@@ -34,8 +35,19 @@ export default function HomePage() {
               <PostCard task={task} key={task.id} /> //
             )
           )}
-        </section>
-      </div>
+        </div>
+
+        <h2 className="cntr-title">Mine opgaver</h2>
+        <div className="group-cntr">
+          {tasks.map(
+            (
+              task //til at kigge på array
+            ) => (
+              <PostCard task={task} key={task.id} /> //
+            )
+          )}
+        </div>
+      </section>
     </section>
   );
 }
