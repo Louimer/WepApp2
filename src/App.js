@@ -4,9 +4,9 @@ import CreatePage from "./pages/CreatePage";
 import UpdatePage from "./pages/UpdatePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
+import ProfilePage from "./pages/ProfilePage";
 import Nav from "./components/Nav";
 import TopBar from "./components/TopBar";
-import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (

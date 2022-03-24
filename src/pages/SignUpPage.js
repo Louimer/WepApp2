@@ -24,7 +24,9 @@ export default function SignUpPage() {
                 code = code.replaceAll("auth/", "");
                 setErrorMessage(code);
             });
+        // Navigate(`/`);
     }
+
     return (
         <section className="page">
             <div className="signin-cntr">

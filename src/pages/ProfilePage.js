@@ -1,12 +1,15 @@
 import { usersRef } from "../firebase-config";
 import { useState, useEffect } from "react";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
-// import { onSnapshot, doc, updateDoc, deleteDoc, setDoc, addDoc, getDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+// import { Navigate } from "react-router-dom";
+import placerholder from "../assets/profile-picture.jpg";
 
 
 export default function ProfilePage({ showLoader }) {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({
+        image: placerholder,
+    });
     const auth = getAuth();
 
     useEffect( () => {
@@ -37,8 +40,8 @@ export default function ProfilePage({ showLoader }) {
         event.preventDefault();
         showLoader(true);
 
-        const userToUpdate = { name: user.name, image: user.image };
-        console.log(userToUpdate);
+        const userToUpdate = { name: user.name, email: user.email, image: user.image };
+            console.log(userToUpdate);
         const docRef = doc(usersRef, user.uid);
 
         await setDoc(docRef, userToUpdate);
@@ -47,24 +50,52 @@ export default function ProfilePage({ showLoader }) {
 
     function handleSignOut() {
         signOut(auth);
+        // Navigate(`/signin`);
     }
 
+    // Delete user handler
+    function handleUserDelete() {
+        const auth = getAuth();
+        const user = auth.currentUser;
+    
+        // If session expired, reauthenticate user credentials 
+        const credentials = EmailAuthProvider.credential(
+        user.email,
+        'yourpassword'
+        );
+        user.reauthenticateWithCredential(credentials);
+    
+        deleteUser(user).then(() => {
+        // User deleted.
+        }).catch((error) => {
+        // An error ocurred
+        // ...
+        });
+        // Navigate(`/signin`);
+    }
+
+    console.log(user.uid, auth.currentuser, user.name)
+
     return (
-        <section className="page">
+        <section className="page profile-page">
             <h1>Profil</h1>
+           
             <form onSubmit={submitEvent}>
-            <label for="image">Profil billede</label>
-            <img className="pf-preview" src={user?.image} alt="Skift foto" onError={event => (event.target.src = "./img/profile-picture.jpg")} />
-                    <input type="url" value={user?.image} accept="image/*" onChange={handleChange} name="image" placeholder="Paste image url" />
-                    <label for="image">Profil billede</label>
-                
+                <div className="profile-avatar">
+                    <div className="user-img">
+                        <img src={user.image} alt={user.id} />
+                    </div>
+                    <label for="profilbillede">Profil billede</label>   
+                </div>             
                 <label for="name">Navn</label>
-                    <input type="text" value={user?.name} onChange={handleChange} name="name" placeholder="Type name" />
+                    <input type="text" value={user?.name} onChange={handleChange} name="name" placeholder="Navn" />
                 <label for="email">Email</label>
-                    <input type="email" value={user?.email} onChange={handleChange} name="email" placeholder="Type email" disabled />
+                    <input type="email" value={user?.email} onChange={handleChange} name="email" placeholder="Email" disabled />
                 <button>Gem</button>
             </form>
             <button className="btn-outline" onClick={handleSignOut}>Log ud</button>
+            <button className="btn-outline" onClick={handleUserDelete}>Slet bruger</button>
+
         </section>
     );
 }
