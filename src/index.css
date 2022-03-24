@@ -8,7 +8,12 @@
   --text-color-danger: rgb(152, 58, 58);
   --white: #f1f1f1;
 }
-
+[data-theme="dark"] {
+  --background: black;
+  --text-primary: white;
+  --text-secondary: grey;
+  --accent: darkred;
+}
 body {
   color: var(--text-color-dark);
   padding: 0;
@@ -68,7 +73,6 @@ a {
   text-transform: uppercase;
 }
 
-
 /* ---------- LOGO ---------- */
 .logo {
   font-family: "Filson Soft", sans-serif;
@@ -79,7 +83,6 @@ a {
   font-weight: bold;
 }
 
-
 /* ---------- TOPBAR ---------- */
 .top-bar {
   width: 100%;
@@ -87,7 +90,7 @@ a {
   padding: 5px 10px;
   top: 0;
   left: 0;
-  right:  0;
+  right: 0;
   position: fixed;
   background-color: var(--green);
   color: var(--text-color-light);
@@ -99,7 +102,6 @@ a {
   font-size: 16px;
   font-weight: 600;
 }
-
 
 /* ---------- WELCOMECARD ---------- */
 .welcome-card {
@@ -182,7 +184,6 @@ a {
   display: block;
   margin: 1em auto 0;
 }
-
 
 /* ---------- animations ---------- */
 /* fade in */
