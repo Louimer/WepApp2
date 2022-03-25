@@ -2,11 +2,10 @@ import { usersRef } from "../firebase-config";
 import { useState, useEffect } from "react";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
-// import { Navigate } from "react-router-dom";
 import placerholder from "../assets/profile-picture.jpg";
 
 
-export default function ProfilePage({ showLoader }) {
+export default function ProfilePage({ currentUser }) {
     const [user, setUser] = useState({
         image: placerholder,
     });
@@ -38,19 +37,17 @@ export default function ProfilePage({ showLoader }) {
 
     async function submitEvent(event) {
         event.preventDefault();
-        showLoader(true);
 
         const userToUpdate = { name: user.name, email: user.email, image: user.image };
             console.log(userToUpdate);
         const docRef = doc(usersRef, user.uid);
 
         await setDoc(docRef, userToUpdate);
-        showLoader(false);
     }
 
+    // Sign out
     function handleSignOut() {
         signOut(auth);
-        // Navigate(`/signin`);
     }
 
     // Delete user handler
@@ -66,12 +63,9 @@ export default function ProfilePage({ showLoader }) {
         user.reauthenticateWithCredential(credentials);
     
         deleteUser(user).then(() => {
-        // User deleted.
         }).catch((error) => {
-        // An error ocurred
         // ...
         });
-        // Navigate(`/signin`);
     }
 
     console.log(user.uid, auth.currentuser, user.name)
@@ -83,18 +77,18 @@ export default function ProfilePage({ showLoader }) {
             <form onSubmit={submitEvent}>
                 <div className="profile-avatar">
                     <div className="user-img">
-                        <img src={user.image} alt={user.id} />
+                        <img src={user?.image} alt={user.id} />
                     </div>
                     <label for="profilbillede">Profil billede</label>   
                 </div>             
                 <label for="name">Navn</label>
-                    <input type="text" value={user?.name} onChange={handleChange} name="name" placeholder="Navn" />
+                    <input type="text" value={user?.name} onChange={handleChange} name="name" placeholder={`${user?.name}`} />
                 <label for="email">Email</label>
-                    <input type="email" value={user?.email} onChange={handleChange} name="email" placeholder="Email" disabled />
+                    <input type="email" value={user?.email} onChange={handleChange} name="email" placeholder={`${user?.email}`} />
                 <button>Gem</button>
             </form>
-            <button className="btn-outline" onClick={handleSignOut}>Log ud</button>
-            <button className="btn-outline" onClick={handleUserDelete}>Slet bruger</button>
+            <button className="btn-outline" onClick={handleSignOut} data-id={user.id}>Log ud</button>
+            <button className="btn-outline" onClick={handleUserDelete} data-id={user.id}>Slet bruger</button>
 
         </section>
     );

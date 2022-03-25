@@ -7,11 +7,12 @@ export default function SignUpPage() {
 
     function signUp(event) {
         event.preventDefault();
+        const name = event.target.name.value;
         const mail = event.target.mail.value;
         const password = event.target.password.value;
         const auth = getAuth();
 
-        createUserWithEmailAndPassword(auth, mail, password)
+        createUserWithEmailAndPassword(auth, mail, password, name)
             .then(userCredential => {
                 // Signed in
                 const user = userCredential.user;
@@ -24,7 +25,6 @@ export default function SignUpPage() {
                 code = code.replaceAll("auth/", "");
                 setErrorMessage(code);
             });
-        // Navigate(`/`);
     }
 
     return (
@@ -33,6 +33,10 @@ export default function SignUpPage() {
             <form className="signin-form" onSubmit={signUp}>
                 <h1 className="logo">Task<span>Roomies</span></h1>
                 <p>Opret en bruger</p>
+                {/* <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')"/>
+                <img src="../assets/profile-picture.jpg" id="imagePreview" class="image-preview" alt="placeholder"/> */}
+
+                <input type="text" id="name" placeholder="Navn" />
                 <input type="email" name="mail" placeholder="Email" />
                 <input type="password" name="password" placeholder="Adgangskode" />
                 <p className="text-error">{errorMessage}</p>
