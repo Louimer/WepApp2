@@ -294,14 +294,12 @@ nav a.active {
 }
 
 /* --- checkbox todo styling  --- */
-.PostCard_cntr {
-}
+
 .todo-list {
   font-size: 20px;
   max-width: 20em;
   margin: auto;
 }
-
 .todo {
   display: block;
   position: relative;
@@ -415,6 +413,18 @@ nav a.active {
   animation-name: explode;
 }
 
+/* --- Calendar componenet styling */
+
+.react-calendar:active {
+  display: block;
+}
+
+.react-calendar__navigation {
+  display: flex;
+}
+.react-calendar button:active {
+  color: orange;
+}
 /* .grid-container {
   display: grid;
   grid-template-columns: 1fr;
