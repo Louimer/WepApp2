@@ -49,7 +49,6 @@ export default function UpdatePage() {
             </div>
           </div>
         </div>
-        <div id="layer"></div>
       </div>
     </section>
   );

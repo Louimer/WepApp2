@@ -18,7 +18,7 @@ export default function TaskForm({ saveTask, task }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>
         Hvilken opgave{" "}
         <input
@@ -30,7 +30,9 @@ export default function TaskForm({ saveTask, task }) {
 
       <br></br>
 
-      <button type="submit">Opret ny opgave</button>
+      <button type="submit" onSubmit={handleSubmit}>
+        Opret ny opgave
+      </button>
     </form>
   );
 }
