@@ -14,21 +14,21 @@ export default function PostCard({ task }) {
       <article>
         <div className="PostCard_cntr">
           <div className="postcard-elem-checkbox">
-          <div className="checkbox_div">
-            {/* <Checkbox /> */}
-          </div>
+            <div className="checkbox_div">
+              {/* <Checkbox /> */}
+            </div>
           </div>
 
           <div className="postcard-elem-todotext">
-          <div className="todo-text">
-            <h3>{task.title}</h3>
-          </div>
+            <div className="todo-text">
+              <h3>{task.title}</h3>
+            </div>
           </div>
 
           <div className="postcard-elem-updatebtn">
-          <div className="update">
-            <button className="post-update-btn" onClick={handleClick}>update</button>
-          </div>
+            <div className="update">
+              <button className="post-update-btn" onClick={handleClick}>update</button>
+            </div>
           </div>
             
           
