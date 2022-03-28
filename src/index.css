@@ -166,7 +166,6 @@ a {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -177,7 +176,7 @@ a {
   text-align: center;
   padding: 1em 1em 2em;
   background-color: var(--white);
-  width: 350px;
+  max-width: 350px;
   animation: fadeIn 0.5s;
 }
 
