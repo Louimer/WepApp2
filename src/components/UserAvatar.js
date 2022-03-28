@@ -6,7 +6,7 @@ import placerholder from "../assets/profile-picture.jpg";
 export default function UserAvatar({ uid }) {
     const [user, setUser] = useState({
         image: placerholder,
-        name: "Users Name",
+        name: "Users Name"
     });
 
     useEffect(() => {
