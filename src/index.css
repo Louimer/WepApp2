@@ -3,15 +3,26 @@
   --green: rgb(38, 76, 89);
   --light-green: rgb(172, 198, 201);
   --light-grey: #f1f1f4;
-  --text-color-light: #f1f1f1;
-  --text-color-dark: #333;
-  --text-color-danger: rgb(152, 58, 58);
+  --txt-clr-l: #f1f1f1;
+  --txt-clr-d: #333;
+  --txt-clr-danger: rgb(152, 58, 58);
+
   --white: #f1f1f1;
+  --black: #232323;
+  --blue-d: #080053;
+  --blue-m: #52B1E1;
+  --blue-l: #C7F4FF;
+  --yellow: #FFC662;
+  --yellow-l: #FFD895;
+
   --border-r: 10px;
+
+  --font-main: 'dita', sans-serif;
+  --font-header: 'filson soft', sans-serif;
 }
 
 body {
-  color: var(--text-color-dark);
+  color: var(--txt-clr-d);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -62,7 +73,7 @@ a {
   text-align: center;
 }
 .text-error {
-  color: var(--text-color-danger);
+  color: var(--txt-clr-danger);
 }
 
 .text-error:first-letter {
@@ -91,7 +102,7 @@ a {
   right:  0;
   position: fixed;
   background-color: var(--green);
-  color: var(--text-color-light);
+  color: var(--txt-clr-l);
   text-transform: uppercase;
 }
 
@@ -175,7 +186,7 @@ a {
   text-align: center;
   cursor: pointer;
   border: none;
-  color: var(--text-color-light);
+  color: var(--txt-clr-l);
   background-color: var(--green);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -221,7 +232,7 @@ nav {
 /* Style the links inside the navigation bar */
 nav a {
   display: inline-block;
-  color: var(--text-color-light);
+  color: var(--txt-clr-l);
   text-align: center;
   padding: 20px 16px;
   text-decoration: none;
@@ -232,7 +243,7 @@ nav a {
 /* Change the color of links on hover */
 nav a:hover {
   background-color: var(--light-grey);
-  color: var(--text-color-dark);
+  color: var(--txt-clr-d);
 }
 
 /* Add a color to the active/current link */
@@ -347,7 +358,7 @@ button {
   text-align: center;
   cursor: pointer;
   border: none;
-  color: var(--text-color-light);
+  color: var(--txt-clr-l);
   background-color: var(--green);
   letter-spacing: 0.05em;
   text-transform: uppercase;
