@@ -39,7 +39,18 @@ export default function UpdatePage() {
     <section className="page">
       <h1>Update Page</h1>
       <TaskForm saveTask={handleSubmit} task={task} />
-      <button onClick={handleDelete}>Delete</button>
+      <div className="checkbox_delete_container">
+        <input type="checkbox" id="checkbox_delete" onClick={handleDelete} />
+        <div id="bin-icon">
+          <div id="lid"></div>
+          <div id="box">
+            <div id="box-inner">
+              <div id="bin-lines"></div>
+            </div>
+          </div>
+        </div>
+        <div id="layer"></div>
+      </div>
     </section>
   );
 }
