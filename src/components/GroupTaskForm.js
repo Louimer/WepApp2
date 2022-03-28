@@ -5,7 +5,6 @@ import { Calendar } from "react-calendar";
 
 export default function GroupTaskForm() {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
   const [person, setPerson] = useState("");
   const [showCal, setShowCal] = useState(false);
 
@@ -13,7 +12,6 @@ export default function GroupTaskForm() {
     event.preventDefault();
     const newGroupTask = {
       title: title,
-      date: date,
       person: person,
       uid: "",
       createdAt: serverTimestamp(),

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import TaskForm from "../components/TaskForm";
 import { tasksRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
-import { doc, getDoc, updateDoc } from "@firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 
 export default function UpdatePage() {
   const navigate = useNavigate();
@@ -27,10 +27,19 @@ export default function UpdatePage() {
     navigate("/");
   }
 
+  function handleDelete() {
+    const confirmDelete = window.confirm(`Delete, ${task.title}?`);
+    if (confirmDelete) {
+      const docRef = doc(tasksRef, task.id);
+      deleteDoc(docRef);
+    }
+  }
+
   return (
     <section className="page">
       <h1>Update Page</h1>
       <TaskForm saveTask={handleSubmit} task={task} />
+      <button onClick={handleDelete}>Delete</button>
     </section>
   );
 }

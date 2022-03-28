@@ -1,19 +1,20 @@
-import { useState } from "react";
-import { addDoc, serverTimestamp } from "@firebase/firestore";
-import { tasksRef } from "../firebase-config";
+import { useEffect, useState } from "react";
 
-export default function TaskForm() {
+export default function TaskForm({ saveTask, task }) {
   const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    if (task) {
+      setTitle(task.title);
+    }
+  }, [task]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    const newTask = {
+    const taskData = {
       title: title,
-      uid: "",
-      createdAt: serverTimestamp(),
     };
-    addDoc(tasksRef, newTask);
-    console.log(newTask);
+    saveTask(taskData);
   }
 
   return (

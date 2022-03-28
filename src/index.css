@@ -294,10 +294,17 @@ nav a.active {
 }
 
 /* --- checkbox todo styling  --- */
-
+.task_div {
+  display: inline-block;
+  z-index: 0;
+}
+.checkbox_div {
+  display: inline-block;
+}
 .todo-list {
   font-size: 20px;
   max-width: 20em;
+  padding-left: 0.5em;
   margin: auto;
 }
 .todo {
@@ -317,9 +324,14 @@ nav a.active {
   left: 0;
   opacity: 0;
 }
-
+.group-cntr article h3 {
+  position: absolute;
+  text-align: left;
+  padding-left: 10%;
+}
 .todo__icon {
-  justify-content: left;
+  z-index: 0;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -411,6 +423,16 @@ nav a.active {
 .todo__state:checked ~ .todo__icon .todo__circle {
   -webkit-animation-name: explode;
   animation-name: explode;
+}
+
+/* UPDATE BUTTON STYLING */
+
+.update {
+  display: contents;
+  padding: 5px 12px;
+  font-size: 1em;
+  width: 30%;
+  max-width: 350px;
 }
 
 /* --- Calendar componenet styling */
