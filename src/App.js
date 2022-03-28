@@ -10,6 +10,7 @@ import Nav from "./components/Nav";
 import TopBar from "./components/TopBar";
 import useLocalStorage from "use-local-storage";
 import "./app.css";
+import GroupUpdatePage from "./pages/GroupUpdatePage";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -38,6 +39,7 @@ function App() {
           <Route path="/create" element={<CreatePage />} />
           <Route path="/update" element={<UpdatePage />} />
           <Route path="/groupcreate" element={<GroupCreatePage />} />
+          <Route path="/groupupdate" element={<GroupUpdatePage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>

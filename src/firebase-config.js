@@ -34,4 +34,4 @@ const db = getFirestore(firebaseApp);
 
 export const tasksRef = collection(db, "task");
 export const usersRef = collection(db, "usersRef");
-export const grouptaskRef = collection(db, "grouptaskRef");
+export const groupTaskRef = collection(db, "groupTaskRef");
