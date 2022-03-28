@@ -10,15 +10,15 @@
   --white: #f1f1f1;
   --black: #232323;
   --blue-d: #080053;
-  --blue-m: #52B1E1;
-  --blue-l: #C7F4FF;
-  --yellow: #FFC662;
-  --yellow-l: #FFD895;
+  --blue-m: #52b1e1;
+  --blue-l: #c7f4ff;
+  --yellow: #ffc662;
+  --yellow-l: #ffd895;
 
   --border-r: 10px;
 
-  --font-main: 'dita', sans-serif;
-  --font-header: 'filson soft', sans-serif;
+  --font-main: "dita", sans-serif;
+  --font-header: "filson soft", sans-serif;
 }
 
 [data-theme="dark"] {
@@ -87,7 +87,6 @@ a {
   text-transform: uppercase;
 }
 
-
 /* ---------- LOGO ---------- */
 .logo {
   font-family: "Filson Soft", sans-serif;
@@ -98,7 +97,6 @@ a {
   font-weight: bold;
 }
 
-
 /* ---------- TOPBAR ---------- */
 .top-bar {
   width: 100%;
@@ -106,7 +104,7 @@ a {
   padding: 5px 10px;
   top: 0;
   left: 0;
-  right:  0;
+  right: 0;
   position: fixed;
   background-color: var(--green);
   color: var(--txt-clr-l);
@@ -118,7 +116,6 @@ a {
   font-size: 16px;
   font-weight: 600;
 }
-
 
 /* ---------- WELCOMECARD ---------- */
 .welcome-card {
@@ -203,7 +200,6 @@ a {
   margin: 1em auto 0;
 }
 
-
 /* ---------- ANIMATIONS ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -257,7 +253,7 @@ nav a.active {
 }
 
 /* ---------- TASKS CNTR ---------- */
-.group-cntr { 
+.group-cntr {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
@@ -279,7 +275,8 @@ nav a.active {
   cursor: pointer;
 }
 
-.group-cntr > article h2, p {
+.group-cntr > article h2,
+p {
   margin: 15px 0px 0px 0px;
 }
 
@@ -297,14 +294,12 @@ nav a.active {
   border-bottom-right-radius: var(--border-r);
 }
 
-
 /* ---------- GRID CNTR ---------- */
 .grid-container {
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
 }
-
 
 .outer-cntr {
   display: flex;
@@ -488,6 +483,204 @@ nav a.active {
   max-width: 350px;
 }
 
+/* UPDATE BUTTON STYLING */
+
+.update {
+  display: contents;
+  padding: 5px 12px;
+  font-size: 1em;
+  width: 30%;
+  max-width: 350px;
+}
+
+/* DELETE BUTTON STYLING */
+
+.checkbox_delete_container {
+  width: 20%;
+  height: 20%;
+  margin: 0 auto;
+}
+
+#checkbox_delete {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  margin: 0 auto;
+  opacity: 0;
+  z-index: 3;
+}
+
+#bin-icon {
+  position: relative;
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: 42px;
+  height: 58px;
+  margin: 40px auto 0 auto;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+#lid {
+  position: relative;
+  width: 50px;
+  height: 4px;
+  left: -4px;
+  border-radius: 4px;
+}
+
+#lid:before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 0;
+  left: 0;
+  width: 10px;
+  height: 6px;
+  margin: 0 auto;
+  border-radius: 10px 10px 0 0;
+}
+
+#box {
+  position: relative;
+  height: 52px;
+  margin-top: 2px;
+  border-radius: 0 0 8px 8px;
+}
+
+#box-inner {
+  position: relative;
+  top: 4px;
+  width: 34px;
+  height: 44px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+}
+
+#bin-lines {
+  position: relative;
+  top: 7px;
+  margin: 0 auto;
+}
+
+#bin-lines,
+#bin-lines:before,
+#bin-lines:after {
+  width: 3px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+#bin-lines:before,
+#bin-lines:after {
+  content: "";
+  position: absolute;
+}
+
+#bin-lines:before {
+  left: -10px;
+}
+
+#bin-lines:after {
+  left: 10px;
+}
+
+#lid,
+#lid:before,
+#box,
+#bin-lines,
+#bin-lines:before,
+#bin-lines:after {
+  background-color: #f44336;
+  transition: 0.2s ease background-color;
+}
+
+#checkbox_delete:checked ~ #bin-icon #lid,
+#checkbox_delete:checked ~ #bin-icon #lid:before,
+#checkbox_delete:checked ~ #bin-icon #box,
+#checkbox_delete:checked ~ #bin-icon #box-inner {
+  background-color: #fff;
+}
+
+#checkbox_delete:checked ~ #bin-icon #bin-lines,
+#checkbox_delete:checked ~ #bin-icon #bin-lines:before,
+#checkbox_delete:checked ~ #bin-icon #bin-lines:after {
+  background-color: #03a9f4;
+}
+
+#checkbox_delete:checked + #bin-icon #box {
+  animation: shake 0.2s ease 0.1s;
+}
+
+#checkbox_delete:checked + #bin-icon #lid {
+  animation: lift-up 0.8s ease 0.1s, shake_u 0.8s ease 0.1s,
+    shake_l 0.2s ease 0.8s;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotateZ(3deg);
+  }
+  25% {
+    transform: rotateZ(0);
+  }
+  75% {
+    transform: rotateZ(-3deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes lift-up {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -35px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes shake_u {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(-15deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(15deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes shake_l {
+  0% {
+    transform: rotateZ(0);
+  }
+  80% {
+    transform: rotateZ(3deg);
+  }
+  90% {
+    transform: rotateZ(-3deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
 /* --- Calendar componenet styling */
 
 .react-calendar:active {
@@ -645,7 +838,6 @@ article .avatar img {
   object-fit: cover;
   border-radius: 50%;
 }
-
 
 /* ---------- PROFILE ---------- */
 .profile-avatar {
