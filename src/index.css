@@ -10,15 +10,15 @@
   --white: #f1f1f1;
   --black: #232323;
   --blue-d: #080053;
-  --blue-m: #52B1E1;
-  --blue-l: #C7F4FF;
-  --yellow: #FFC662;
-  --yellow-l: #FFD895;
+  --blue-m: #52b1e1;
+  --blue-l: #c7f4ff;
+  --yellow: #ffc662;
+  --yellow-l: #ffd895;
 
   --border-r: 10px;
 
-  --font-main: 'dita', sans-serif;
-  --font-header: 'filson soft', sans-serif;
+  --font-main: "dita", sans-serif;
+  --font-header: "filson soft", sans-serif;
 }
 
 [data-theme="dark"] {
@@ -32,9 +32,7 @@ body {
   color: var(--txt-clr-d);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Dita";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -87,7 +85,6 @@ a {
   text-transform: uppercase;
 }
 
-
 /* ---------- LOGO ---------- */
 .logo {
   font-family: "Filson Soft", sans-serif;
@@ -98,7 +95,6 @@ a {
   font-weight: bold;
 }
 
-
 /* ---------- TOPBAR ---------- */
 .top-bar {
   width: 100%;
@@ -106,7 +102,7 @@ a {
   padding: 5px 10px;
   top: 0;
   left: 0;
-  right:  0;
+  right: 0;
   position: fixed;
   background-color: var(--green);
   color: var(--txt-clr-l);
@@ -118,7 +114,6 @@ a {
   font-size: 16px;
   font-weight: 600;
 }
-
 
 /* ---------- WELCOMECARD ---------- */
 .welcome-card {
@@ -203,7 +198,6 @@ a {
   margin: 1em auto 0;
 }
 
-
 /* ---------- ANIMATIONS ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -257,7 +251,7 @@ nav a.active {
 }
 
 /* ---------- TASKS CNTR ---------- */
-.group-cntr { 
+.group-cntr {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
@@ -279,7 +273,8 @@ nav a.active {
   cursor: pointer;
 }
 
-.group-cntr > article h2, p {
+.group-cntr > article h2,
+p {
   margin: 15px 0px 0px 0px;
 }
 
@@ -297,14 +292,12 @@ nav a.active {
   border-bottom-right-radius: var(--border-r);
 }
 
-
 /* ---------- GRID CNTR ---------- */
 .grid-container {
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
 }
-
 
 .outer-cntr {
   display: flex;
@@ -645,7 +638,6 @@ article .avatar img {
   object-fit: cover;
   border-radius: 50%;
 }
-
 
 /* ---------- PROFILE ---------- */
 .profile-avatar {
