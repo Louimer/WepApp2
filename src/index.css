@@ -293,6 +293,13 @@ nav a.active {
   object-fit: cover;
 }
 
+.PostCard_cntr {
+  border: solid #4e27fd;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* --- checkbox todo styling  --- */
 .task_div {
   display: inline-block;
