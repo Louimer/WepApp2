@@ -5,7 +5,7 @@ import placerholder from "../assets/profile-picture.jpg";
 
 export default function User({ uid }) {
     const [user, setUser] = useState({
-        image: placerholder,
+        image: placerholder
     });
 
     useEffect(() => {

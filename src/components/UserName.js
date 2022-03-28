@@ -5,7 +5,7 @@ import { usersRef } from "../firebase-config";
 
 export default function UserName({ uid }) {
     const [user, setUser] = useState({
-        name: "Name",
+        name: "Name"
     });  
       
 
