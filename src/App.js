@@ -11,7 +11,7 @@ import TopBar from "./components/TopBar";
 import useLocalStorage from "use-local-storage";
 import "./app.css";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
-import sunMoon from "./assets/sunMoon.png";
+import sunMoon from "./assets/sunMoon.svg";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
