@@ -24,7 +24,7 @@ export default function GroupTaskForm() {
     <form onSubmit={handleSubmit}>
       <label>
         <input
-          placeholder="Hvilken opgave?"
+          placeholder="Hvad skal ordnes?"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -33,7 +33,7 @@ export default function GroupTaskForm() {
 
       <br></br>
       <label>
-        Skal opgaven udføres en bestemt dag?
+        Skal det ordnes en bestemt dag?
         <input
           placeholder=""
           value={showCal}
@@ -44,16 +44,16 @@ export default function GroupTaskForm() {
       </label>
 
       <label>
-        Hvordan skal opgaven fordeles
+        Hvem snupper den?
         <select
           placeholder=""
           value={person}
           onChange={(e) => setPerson(e.target.value)}
         >
-          <option value="Person 1">Person 1</option>
-          <option value="Person 2">Person 2</option>
-          <option value="Person 3">Person 3</option>
-          <option value="Person 4">Person 4</option>
+          <option value="">Person 1</option>
+          <option value="">Person 2</option>
+          <option value="">Person 3</option>
+          <option value="">Person 4</option>
         </select>
       </label>
       <button className="add-job-button" type="submit">

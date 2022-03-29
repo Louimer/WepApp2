@@ -20,7 +20,7 @@ export default function TaskForm({ saveTask, task }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Hvilken opgave{" "}
+        Hvad skal du huske?{" "}
         <input
           type="text"
           value={title}
