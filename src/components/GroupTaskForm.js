@@ -50,13 +50,15 @@ export default function GroupTaskForm() {
           value={person}
           onChange={(e) => setPerson(e.target.value)}
         >
-          <option value="">Person 1</option>
-          <option value="">Person 2</option>
-          <option value="">Person 3</option>
-          <option value="">Person 4</option>
+          <option value="Person 1">Person 1</option>
+          <option value="Person 2">Person 2</option>
+          <option value="Person 3">Person 3</option>
+          <option value="Person 4">Person 4</option>
         </select>
       </label>
-      <button type="submit">Opret ny opgave</button>
+      <button className="add-job-button" type="submit">
+        +
+      </button>
     </form>
   );
 }

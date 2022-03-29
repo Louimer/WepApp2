@@ -33,9 +33,9 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="signin" element={<SignInPage />} />
-          <Route path="signup" element={<SignUpPage />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/create" element={<CreatePage />} />
           <Route path="/update" element={<UpdatePage />} />
           <Route path="/groupcreate" element={<GroupCreatePage />} />

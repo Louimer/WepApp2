@@ -492,8 +492,11 @@ p {
 .react-calendar__navigation {
   display: flex;
 }
-.react-calendar button:active {
+.react-calendar button:hover {
   color: orange;
+}
+.react-calendar button:checked {
+  color: #27fdc7;
 }
 
 /* ---------- FORM ---------- */
