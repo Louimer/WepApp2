@@ -7,11 +7,16 @@
   --txt-clr-d: #333;
   --txt-clr-danger: rgb(152, 58, 58);
 
+  /* --bg: #c3cfd3; */
+  --bg: #f1f1f1;
+  --bg-gradient: linear-gradient(80deg, #f1f1f1, #C7F4FF);;
+
   --white: #f1f1f1;
   --black: #232323;
   --blue-d: #080053;
   --blue-m: #52B1E1;
-  --blue-l: #C7F4FF;
+  --blue-l: #f7ebbe;
+  /* --blue-l: #C7F4FF; */
   --yellow: #FFC662;
   --yellow-l: #FFD895;
 
@@ -46,7 +51,8 @@ code {
 
 main {
   padding: 20px 0 0;
-  background-color: var(--white);
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
 }
 
 h1 {
@@ -77,7 +83,8 @@ a {
 }
 
 .page {
-  background-color: var(--white);
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
   color: var(--blue-d);
   min-height: calc(100vh - 58px - 2em);
   padding: 1em;
