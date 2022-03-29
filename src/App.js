@@ -11,6 +11,7 @@ import TopBar from "./components/TopBar";
 import useLocalStorage from "use-local-storage";
 import "./app.css";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
+import sunMoon from "./assets/sunMoon.png";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <button className="DarkModeButton" onClick={switchTheme}>
-        {theme === "light" ? "dark" : "light"} Mode
+        <img className="dark-mode-icon" src={sunMoon} alt="Dark Mode Icon" />
       </button>
       <main>
         <TopBar />
