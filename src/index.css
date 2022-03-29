@@ -17,7 +17,7 @@
 
   --border-r: 10px;
 
-  --font-main: 'dita', sans-serif;
+  --font-main: 'montserrat', sans-serif;
   --font-header: 'filson soft', sans-serif;
 }
 
@@ -46,7 +46,7 @@ code {
 
 main {
   padding: 58px 0 0;
-  background-color: var(--light-green);
+  background-color: var(--white);
 }
 
 h1 {
@@ -71,9 +71,10 @@ a {
 }
 
 .page {
-  background-color: var(--light-green);
+  background-color: var(--white);
   min-height: calc(100vh - 58px - 2em);
   padding: 1em;
+  padding-bottom: 100px;
 }
 
 .text-center {
@@ -108,7 +109,7 @@ a {
   left: 0;
   right:  0;
   position: fixed;
-  background-color: var(--green);
+  background-color: var(--blue-d);
   color: var(--txt-clr-l);
   text-transform: uppercase;
 }
@@ -127,8 +128,9 @@ a {
   transition: 0.5s;
   display: flex;
   flex-direction: row;
-  background-color: var(--white);
+  background-color: var(--blue-l);
   border-radius: var(--border-r);
+  border: solid #52B1E1 2px;
 }
 
 .welcome-userimg {
@@ -144,7 +146,7 @@ a {
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
-  border: solid rgb(125, 168, 182) 2px;
+  border: solid var(--blue-m) 2px;
 }
 
 .welcome-msg {
@@ -227,7 +229,7 @@ a {
 
 /* ---------- NAV ---------- */
 nav {
-  background-color: var(--green);
+  background-color: var(--blue-d);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -252,8 +254,8 @@ nav a:hover {
 }
 
 nav a.active {
-  background-color: var(--light-green);
-  color: var(--green);
+  background-color: var(--blue-d);
+  color: var(--blue-m);
 }
 
 /* ---------- TASKS CNTR ---------- */
@@ -262,7 +264,7 @@ nav a.active {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  border: solid #7da8b6 2px;
+  border: solid var(--blue-m) 2px;
   border-radius: var(--border-r);
 }
 
@@ -284,7 +286,7 @@ nav a.active {
 }
 
 .group-cntr > article:nth-child(2n) {
-  background-color: rgb(125, 168, 182);
+  background-color: var(--blue-l);
 }
 
 .group-cntr > article:first-child {
@@ -353,7 +355,7 @@ nav a.active {
 }
 
 .postcard-elem-checkbox {
-  border: solid blue 1px;
+  border: solid blue 0px;
   height: 100%;
   width: 25px;
   display: flex;
@@ -361,7 +363,8 @@ nav a.active {
 }
 
 .postcard-elem-todotext {
-  border: solid blue 1px;
+  border: solid blue 0px;
+  color: #080053;
   height: 100%;
   width: 60%;
   display: flex;
@@ -369,7 +372,7 @@ nav a.active {
 }
 
 .postcard-elem-updatebtn {
-  border: solid blue 1px;
+  border: solid blue 0px;
   height: 100%;
   width: 20%;
   display: flex;
@@ -377,14 +380,14 @@ nav a.active {
 }
 
 .checkbox_div {
-  border: solid green 1px;
+  border: solid var(--blue-m) 2px;
   height: 25px;
   width: 100%;
   margin-top: 12px;
 }
 
 .todo-text {
-  border: solid red 1px;
+  border: solid red 0px;
   width: 100%;
   margin: 0;
   padding: 12px 5px;
@@ -396,7 +399,7 @@ nav a.active {
 }
 
 .update {
-  border: solid purple 1px;
+  border: solid purple 0px;
   width: 100%;
   margin: 0;
   display: flex;
@@ -412,8 +415,8 @@ nav a.active {
   text-align: center;
   cursor: pointer;
   border: none;
-  color: #000;
-  background-color: #52B1E1;
+  color: var(--blue-l);
+  background-color: var(--blue-d);
   text-transform: uppercase;
 }
 
@@ -446,6 +449,7 @@ nav a.active {
   text-align: left;
   /* padding-left: 10%; */
 }
+
 .todo__icon {
   z-index: 0;
   position: absolute;
@@ -461,11 +465,13 @@ nav a.active {
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
 .todo__line,
 .todo__box,
 .todo__check {
   transition: stroke-dashoffset 0.8s cubic-bezier(0.9, 0, 0.5, 1);
 }
+
 .todo__circle {
   stroke: #4e27fd;
   stroke-dasharray: 1 6;
@@ -724,6 +730,96 @@ article .avatar img {
   border: solid rgb(125, 168, 182) 2px;
 }
 
+.profile-page input {
+  margin: 5px;
+  width: 100%;
+  max-width: 350px;
+  padding: 1em;
+  box-sizing: border-box;
+  display: block;
+  background: var(--white);
+  color: var(--blue-m);
+  border: solid 2px var(--blue-m);
+  border-radius: 5px;
+}
+
 .profile-page form label {
   text-align: left;
+}
+
+.group-members-box {
+  border: solid red 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.group-members-box .user-img img {
+  border: solid var(--blue-m) 2px;
+  max-width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  
+}
+
+.group-members-details {
+  border: solid green 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.group-members-details input { 
+  margin: 5px;
+  width: 45%;
+  max-width: 350px;
+  padding: 1em;
+  box-sizing: border-box;
+  display: block;
+  background: var(--white);
+  color: var(--blue-m);
+  border: solid 2px var(--blue-m);
+  border-radius: var(5px);
+}
+
+.remove-btn {
+  height: 12px;
+  width: 13px;
+  padding: 0px;
+  margin: 0px;
+  /* border: solid var(--blue-d) 1px; */
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--txt-clr-l);
+  background-color: var(--blue-d);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.invite-btn {
+  width: 25%;
+  float: right;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: var(--blue-d);
+  background-color: var(--yellow);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  font-size: 10px;
+  margin: 5px 20px;
+}
+
+.invite-btn svg {
+  width: auto;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.invite-btn svg path {
+  fill: var(--blue-d);
 }

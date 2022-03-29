@@ -39,7 +39,7 @@ export default function HomePage() {
       <section className="card">
         <WelcomeCard />
       </section>
-      <h1>HomePage</h1>
+      {/* <h1>HomePage</h1> */}
       <section className="grid-container">
         <h2 className="cntr-title">Gruppe opgaver</h2>
         <div className="group-cntr">
