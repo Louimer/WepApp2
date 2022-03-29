@@ -1,8 +1,6 @@
 import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
-import UserName from "./UserName";
-
 export default function SignUpPage() {
   const [errorMessage, setErrorMessage] = React.useState("");
 
