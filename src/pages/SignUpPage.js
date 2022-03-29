@@ -41,11 +41,10 @@ export default function SignUpPage() {
                 <input type="password" name="password" placeholder="Adgangskode" />
                 <p className="text-error">{errorMessage}</p>
                 <button className="signin-btn">Opret</button>
-            </form>
-
-            <p className="text-center">
+                <p className="text-center">
                 Har du en bruger? <Link to="/signin">Log ind</Link>
             </p>
+            </form>
             </div>
         </section>
     );

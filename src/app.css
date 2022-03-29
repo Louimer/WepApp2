@@ -2,7 +2,7 @@
     color: var(--text-primary);
     background-color: var(--background);
     font-size: large;
-    font-weight: bold;
+    /* font-weight: bold; */
     /* padding: 20px; */
     transition: all 0.5s;
   }
