@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GroupTaskForm from "../components/TaskForm";
-import { groupTaskRef } from "../firebase-config";
+import GroupTaskForm from "../components/GroupTaskForm";
+import { grouptaskRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 
@@ -14,22 +14,23 @@ export default function GroupUpdatePage() {
 
   useEffect(() => {
     async function getGroupTask() {
-      const docRef = doc(groupTaskRef, grouptaskId);
+      const docRef = doc(grouptaskRef, grouptaskId);
       const docData = await getDoc(docRef);
-      setGroupTask(docData.data);
+      setGroupTask(docData.data());
     }
     getGroupTask();
   }, [grouptaskId]);
 
   function handleSubmit(grouptaskToUpdate) {
-    const docRef = doc(groupTaskRef, grouptaskId);
+    const docRef = doc(grouptaskRef, grouptaskId);
     updateDoc(docRef, grouptaskToUpdate);
     navigate("/");
-  }
+  } //HVORFOR UPDATER DEN IKKE
+
   function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
     if (confirmDelete) {
-      const docRef = doc(groupTaskRef, grouptask.id);
+      const docRef = doc(grouptaskRef, grouptask.id);
       deleteDoc(docRef);
     }
   }
