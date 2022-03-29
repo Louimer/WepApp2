@@ -2,7 +2,7 @@ import { usersRef } from "../firebase-config";
 import { useState, useEffect } from "react";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
-import placerholder from "../assets/profile-picture.jpg";
+import placerholder from "../assets/profile-picture.gif";
 import { HiMinusCircle } from "react-icons/hi";
 
 export default function ProfilePage({ currentUser }) {

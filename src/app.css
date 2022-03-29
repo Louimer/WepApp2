@@ -1,14 +1,14 @@
 .App {
   color: var(--text-primary);
   background-color: var(--background);
-  padding: 20px;
   transition: all 0.5s;
 }
 .DarkModeButton {
   background-color: var(--background);
-  float: right;
   transition: all 0.5s;
+  padding: 0%;
+  display: inline-block;
 }
 .dark-mode-icon {
-  width: 60%;
+  width: 20%;
 }

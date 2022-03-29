@@ -57,7 +57,7 @@ export default function GroupTaskForm({ grouptask }) {
           <option value="">Person 4</option>
         </select>
       </label>
-      <button type="submit">Opret ny opgave</button>
+      <button type="submit">Gem</button>
     </form>
   );
 }

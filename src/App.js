@@ -13,7 +13,7 @@ import "./app.css";
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
-// import sunMoon from "./assets/sunMoon.svg";
+import { WiSolarEclipse } from "react-icons/wi";
 
 function App() {
   const auth = getAuth();
@@ -42,9 +42,15 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      {/* <button className="DarkModeButton" onClick={switchTheme}>
-        <img className="dark-mode-icon" src={sunMoon} alt="Dark Mode Icon" />
-      </button> */}
+      <h1 className="header_logo">
+        Task<span>Roomies</span>
+      </h1>
+      <button className="DarkModeButton" onClick={switchTheme}>
+        <h3 className="dark-mode-icon">
+          <WiSolarEclipse />
+        </h3>
+      </button>
+
       <main>
         {isAuth ? (
           <>

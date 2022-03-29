@@ -111,6 +111,15 @@ a {
   font-weight: bold;
 }
 
+.header_logo {
+  font-family: "Filson Soft", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.header_logo span {
+  font-weight: bold;
+}
+
 /* ---------- TOPBAR ---------- */
 /* .top-bar {
   width: 100%;
@@ -267,7 +276,7 @@ nav {
 nav a {
   display: inline-block;
   color: var(--txt-clr-l);
-  padding: 10px 30px;
+  padding: 10px 23px;
 }
 
 nav a:hover {
@@ -321,6 +330,22 @@ p {
 .group-cntr > article:last-child {
   border-bottom-left-radius: var(--border-r);
   border-bottom-right-radius: var(--border-r);
+}
+
+/* ---------- CREATE TASK PAGE ---------- */
+.createtask_container {
+  min-height: 55px;
+  margin-top: 40px;
+  width: 95%;
+  padding: 5px 10px;
+  /* justify-content: space-between; */
+  background-color: var(--white);
+  transition: 0.5s;
+  animation: fadeIn 0.5s;
+  cursor: pointer;
+  background-color: var(--blue-l);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: var(--border-r);
 }
 
 /* ---------- GRID CNTR ---------- */
@@ -392,7 +417,6 @@ p {
   display: block;
   width: 100%;
   height: 20%;
-  border: solid salmon;
 }
 
 .checkbox_svg {
@@ -403,6 +427,7 @@ p {
   color: saturate(#1b4a4e, 15%);
   transition-duration: 0.2 linear;
   font-size: 0.9em;
+  padding-top: 6%;
 }
 
 .todo {
@@ -724,7 +749,29 @@ p {
   }
 }
 
+/* --- CREATE GROUP TASK PAGE */
+
 /* --- Calendar componenet styling */
+
+.react-calendar__navigation button {
+  color: var(--txt-clr-l);
+  background-color: var(--bg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4em 0.8em;
+  font-size: 0.8em;
+  border-radius: 1px;
+}
+
+.react-calendar__tile {
+  color: var(--txt-clr-l);
+  background-color: var(--bg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4em 0.8em;
+  font-size: 0.8em;
+  border-radius: 1px;
+}
 
 .react-calendar:active {
   display: block;
@@ -734,24 +781,37 @@ p {
   display: flex;
 }
 .react-calendar button:active {
-  color: orange;
+  background-color: rgb(3, 219, 208);
 }
 
+select {
+  margin: 1em auto;
+  width: 100%;
+  max-width: 350px;
+  padding: 1em;
+  box-sizing: border-box;
+  display: block;
+  background: var(--white);
+  border: solid 2px grey;
+}
 /* ---------- FORM ---------- */
 form {
   margin: auto;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   text-align: center;
+  line-height: 30px;
   padding: 1em 1em 2em;
   background-color: var(--white);
   max-width: 380px;
   animation: fadeIn 0.5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: var(--border-r);
 }
 
 form button {
-  padding: 12px 15px;
+  padding: 6px 1px;
   font-size: 1em;
-  width: 100%;
+  width: 40%;
   max-width: 350px;
 }
 
@@ -774,9 +834,10 @@ button {
 }
 
 button.btn-outline {
-  background-color: var(--light-green);
-  color: var(--green);
-  border: solid 2px var(--green);
+  font-size: 0.4em;
+  color: black;
+  background-color: var(--white);
+  width: 40%;
 }
 
 .btn-sign-out {
@@ -784,30 +845,19 @@ button.btn-outline {
   right: 0;
   top: 0;
   cursor: pointer;
-  font-size: 0.7em;
+  font-size: 0.3em;
   padding: 2.032em 1em;
 }
 
 input {
-  margin: 1em auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 350px;
   padding: 1em;
   box-sizing: border-box;
   display: block;
   background: var(--white);
-  border: solid 2px var(--green);
-}
-
-select {
-  margin: 1em auto;
-  width: 100%;
-  max-width: 350px;
-  padding: 1em;
-  box-sizing: border-box;
-  display: block;
-  background: var(--white);
-  border: solid 2px var(--green);
+  border: solid 2px grey;
 }
 
 .image-preview {
@@ -896,6 +946,8 @@ article .avatar img {
   text-align: left;
   color: var(--blue-d);
   height: 100%;
+  box-shadow: rgba(5, 5, 5, 0.2) 0px 7px 29px 0px;
+  border-radius: var(--border-r);
 }
 
 .profile-page .user-img img {
@@ -903,24 +955,24 @@ article .avatar img {
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  border: solid var(--blue-m) 2px;
 }
 
 .profile-page input {
-  margin: 5px;
   width: 100%;
-  max-width: 98%;
+  max-width: 95%;
   padding: 1em;
+  margin-bottom: 10%;
   box-sizing: border-box;
   display: block;
   background: var(--white);
-  color: var(--blue-m);
-  border: solid 2px var(--blue-m);
+  color: grey;
+  border: solid 2px grey;
   border-radius: 5px;
 }
 
 .profile-avatar {
   border: solid blue 0px;
+  margin-top: 10px;
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -932,10 +984,11 @@ article .avatar img {
 
 .profile-avatar-label {
   border: solid blue 0px;
+  margin-bottom: 30px;
   width: 100%;
   text-align: center;
   font-size: 12px;
-  color: var(--blue-m);
+  color: grey;
 }
 
 .profile-avatar .user-img {
@@ -950,7 +1003,7 @@ article .avatar img {
 }
 
 .profile-btn-cntr button {
-  font-size: 12px;
+  font-size: 10px;
   width: 30%;
   padding: 8px 5px;
 }
@@ -1007,7 +1060,7 @@ p {
   display: block;
   background: var(--white);
   color: var(--blue-m);
-  border: solid 2px var(--blue-m);
+  border: solid 2px grey;
   border-radius: var(5px);
 }
 
@@ -1025,7 +1078,7 @@ p {
   float: right;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   color: var(--white);
   background-color: var(--yellow);
   text-transform: uppercase;

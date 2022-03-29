@@ -23,9 +23,9 @@ export default function TaskForm({ saveTask, task }) {
 
   return (
     <form>
-      <label>
-        Hvilken opgave{" "}
+      <label className="taskform_label">
         <input
+          placeholder="Hvilken opgave?"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -35,7 +35,7 @@ export default function TaskForm({ saveTask, task }) {
       <br></br>
 
       <button type="submit" onSubmit={handleSubmit}>
-        Opret ny opgave
+        Gem
       </button>
     </form>
   );
