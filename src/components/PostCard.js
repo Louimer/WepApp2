@@ -6,7 +6,7 @@ export default function PostCard({ task }) {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`/update`);
+    navigate(`/update/${task.id}`);
   }
 
   return (
@@ -20,7 +20,7 @@ export default function PostCard({ task }) {
           </div>
 
           <div className="postcard-elem-todotext">
-            <div className="todo-text">
+            <div className="todo__text">
               <h3>{task.title}</h3>
             </div>
           </div>

@@ -16,22 +16,23 @@ export default function UpdatePage() {
     async function getTask() {
       const docRef = doc(tasksRef, taskId);
       const docData = await getDoc(docRef);
-      setTasks(docData.data);
+      setTasks(docData.data());
     }
     getTask();
   }, [taskId]);
 
-  function handleSubmit(taskToUpdate) {
+  async function handleSubmit(taskToUpdate) {
     const docRef = doc(tasksRef, taskId);
-    updateDoc(docRef, taskToUpdate);
-    navigate(`/update/${task.id}`);
+    await updateDoc(docRef, taskToUpdate);
+    navigate("/");
   }
 
-  function handleDelete() {
+  async function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${task.title}?`);
     if (confirmDelete) {
       const docRef = doc(tasksRef, task.id);
-      deleteDoc(docRef);
+      navigate("/");
+      await deleteDoc(docRef);
     }
   }
 

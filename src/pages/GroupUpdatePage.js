@@ -21,17 +21,17 @@ export default function GroupUpdatePage() {
     getGroupTask();
   }, [grouptaskId]);
 
-  function handleSubmit(grouptaskToUpdate) {
+  async function handleSubmit(grouptaskToUpdate) {
     const docRef = doc(grouptaskRef, grouptaskId);
-    updateDoc(docRef, grouptaskToUpdate);
+    await updateDoc(docRef, grouptaskToUpdate);
     navigate("/");
   } //HVORFOR UPDATER DEN IKKE
 
-  function handleDelete() {
+  async function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
     if (confirmDelete) {
       const docRef = doc(grouptaskRef, grouptask.id);
-      deleteDoc(docRef);
+      await deleteDoc(docRef);
     }
   }
 

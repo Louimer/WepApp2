@@ -1,4 +1,4 @@
-// import Checkbox from "../components/GroupCheckbox";
+import Checkbox from "../components/Checkbox";
 import { useNavigate } from "react-router-dom";
 
 export default function GroupPostCard({ grouptask }) {
@@ -14,7 +14,9 @@ export default function GroupPostCard({ grouptask }) {
       <article>
         <div className="PostCard_cntr">
           <div className="postcard-elem-checkbox">
-            <div className="checkbox_div">{/* <Checkbox /> */}</div>
+            <div className="checkbox_div">
+              <Checkbox />
+            </div>
           </div>
 
           <div className="postcard-elem-todotext">
