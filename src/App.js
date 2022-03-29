@@ -7,12 +7,13 @@ import SignUpPage from "./pages/SignUpPage";
 import GroupCreatePage from "./pages/GroupCreatePage";
 import ProfilePage from "./pages/ProfilePage";
 import Nav from "./components/Nav";
-import TopBar from "./components/TopBar";
+// import TopBar from "./components/TopBar";
 import useLocalStorage from "use-local-storage";
 import "./app.css";
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
+// import sunMoon from "./assets/sunMoon.svg";
 
 function App() {
   const auth = getAuth();
@@ -41,14 +42,13 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <span>Dark Mode</span>
-      <button className="DarkModeButton" onClick={switchTheme}>
-        Switch to {theme === "light" ? "dark" : "light"} Theme
-      </button>
+      {/* <button className="DarkModeButton" onClick={switchTheme}>
+        <img className="dark-mode-icon" src={sunMoon} alt="Dark Mode Icon" />
+      </button> */}
       <main>
         {isAuth ? (
           <>
-            <TopBar />
+            {/* <TopBar /> */}
             <Nav />
             <Routes>
               <Route path="/" element={<HomePage />} />

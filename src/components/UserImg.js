@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
-import placerholder from "../assets/profile-picture.jpg";
+import placerholder from "../assets/profile-picture.gif";
 
 export default function User({ uid }) {
     const [user, setUser] = useState({

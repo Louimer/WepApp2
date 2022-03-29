@@ -40,8 +40,9 @@ export default function HomePage() {
         <WelcomeCard />
       </section>
       {/* <h1>HomePage</h1> */}
+      <br></br>
       <section className="grid-container">
-        <h2 className="cntr-title">Gruppe opgaver</h2>
+        <h2 className="cntr-title">Gruppeopgaver</h2>
         <div className="group-cntr">
           {grouptasks.map(
             (
@@ -51,9 +52,10 @@ export default function HomePage() {
             )
           )}
         </div>
-
+        <br></br>
         <h2 className="cntr-title">Mine opgaver</h2>
         <div className="group-cntr">
+         
           {tasks.map(
             (
               task //til at kigge på array

@@ -32,6 +32,7 @@ export default function GroupUpdatePage() {
     if (confirmDelete) {
       const docRef = doc(grouptaskRef, grouptask.id);
       await deleteDoc(docRef);
+      navigate("/");
     }
   }
 

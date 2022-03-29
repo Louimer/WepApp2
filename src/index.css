@@ -1,17 +1,22 @@
 /* ---------- ROOTS ---------- */
 :root {
-  --green: rgb(38, 76, 89);
+  --green: #f39e0a; /*knapper og aktive links*/
   --light-green: rgb(172, 198, 201);
   --light-grey: #f1f1f4;
   --txt-clr-l: #f1f1f1;
   --txt-clr-d: #333;
   --txt-clr-danger: rgb(152, 58, 58);
 
+  /* --bg: #c3cfd3; */
+  /* --bg: #f1f1f1; */
+  --bg: #72617e;
+
+  /*background: linear-gradient(312deg, rgba(251,249,250,1) 0%, rgba(12,39,138,1) 3%, rgba(93,39,148,1) 91%); darkmode*/
   --white: #f1f1f1;
   --black: #232323;
-  --blue-d: #080053;
+  --blue-d: #2d1e2f;
   --blue-m: #52b1e1;
-  --blue-l: #c7f4ff;
+  --blue-l: #f6f8fa;
   --yellow: #ffc662;
   --yellow-l: #ffd895;
 
@@ -28,13 +33,15 @@
   --accent: darkred;
 }
 
+/* ----- IMPORTS ----- */
+@import url("https://use.typekit.net/smz2raf.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
+
 body {
   color: var(--txt-clr-d);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,8 +52,9 @@ code {
 }
 
 main {
-  padding: 58px 0 0;
-  background-color: var(--white);
+  padding: 20px 0 0;
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
 }
 
 h1 {
@@ -65,13 +73,18 @@ h3 {
   font-weight: 500;
   letter-spacing: 0.1px;
 }
+p {
+  font-size: 16px;
+}
 
 a {
   color: var(--green);
 }
 
 .page {
-  background-color: var(--white);
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
+  color: var(--blue-d);
   min-height: calc(100vh - 58px - 2em);
   padding: 1em;
   padding-bottom: 100px;
@@ -99,7 +112,7 @@ a {
 }
 
 /* ---------- TOPBAR ---------- */
-.top-bar {
+/* .top-bar {
   width: 100%;
   height: 20px;
   padding: 5px 10px;
@@ -116,23 +129,24 @@ a {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-}
+} */
 
 /* ---------- WELCOMECARD ---------- */
 .welcome-card {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
   padding: 10px;
   transition: 0.5s;
   display: flex;
   flex-direction: row;
   background-color: var(--blue-l);
   border-radius: var(--border-r);
-  border: solid #52b1e1 2px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .welcome-userimg {
   height: auto;
-  padding: 10px 0px;
+  padding: 22px 10px 0px 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -143,7 +157,6 @@ a {
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
-  border: solid var(--blue-m) 2px;
 }
 
 .welcome-msg {
@@ -167,16 +180,33 @@ a {
   margin-right: auto;
   display: flex;
   flex-direction: column;
+  color: var(--blue-d);
 }
 
 .signin-form {
   margin: auto;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); */
   text-align: center;
   padding: 1em 1em 2em;
   background-color: var(--white);
   max-width: 350px;
   animation: fadeIn 0.5s;
+}
+
+.signin-form input {
+  border-radius: 5px;
+  background-color: var(--white);
+  color: var(--blue-d);
+}
+
+.signin-form .text-center {
+  padding-top: 10px;
+  color: var(--yellow);
+}
+
+.signin-form a {
+  color: var(--yellow);
+  font-weight: 600;
 }
 
 .signin-form .signin-btn {
@@ -192,7 +222,7 @@ a {
   cursor: pointer;
   border: none;
   color: var(--txt-clr-l);
-  background-color: var(--green);
+  background-color: var(--yellow);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.5em 1em;
@@ -237,11 +267,7 @@ nav {
 nav a {
   display: inline-block;
   color: var(--txt-clr-l);
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  padding: 10px 30px;
 }
 
 nav a:hover {
@@ -251,7 +277,7 @@ nav a:hover {
 
 nav a.active {
   background-color: var(--blue-d);
-  color: var(--blue-m);
+  color: var(--green);
 }
 
 /* ---------- TASKS CNTR ---------- */
@@ -260,7 +286,7 @@ nav a.active {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  border: solid var(--blue-m) 2px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: var(--border-r);
 }
 
@@ -275,16 +301,17 @@ nav a.active {
   transition: 0.5s;
   animation: fadeIn 0.5s;
   cursor: pointer;
+  background-color: var(--blue-l);
 }
 
 .group-cntr > article h2,
 p {
   margin: 15px 0px 0px 0px;
 }
-
+/* 
 .group-cntr > article:nth-child(2n) {
   background-color: var(--blue-l);
-}
+} */
 
 .group-cntr > article:first-child {
   border-top-left-radius: var(--border-r);
@@ -310,7 +337,8 @@ p {
 
 .cntr-title {
   margin: 0;
-  padding: 30px 0px 5px 0px;
+  font-size: 1em;
+  padding: 20px 0px 5px 5px;
   text-transform: uppercase;
 }
 
@@ -374,6 +402,7 @@ p {
 .todo__text h3 {
   color: saturate(#1b4a4e, 15%);
   transition-duration: 0.2 linear;
+  font-size: 0.9em;
 }
 
 .todo {
@@ -381,10 +410,10 @@ p {
   position: absolute;
   height: 20vh;
   width: 30vh;
-  padding: 0em 1em 1em 16%;
   cursor: pointer;
   border-bottom: solid 1px #ddd;
   z-index: 2;
+  padding-left: 2%;
 }
 
 .todo:last-child {
@@ -399,7 +428,7 @@ p {
 .group-cntr article h3 {
   position: absolute;
   text-align: left;
-  padding-left: 10%;
+  padding-top: 2%;
 }
 .todo__icon {
   z-index: 0;
@@ -735,10 +764,13 @@ button {
   background-color: var(--green);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.5em 1em;
+  padding: 0.4em 0.8em;
   font-size: 0.8em;
   display: block;
-  margin: 1em auto 0;
+  margin: 1.4em auto 0;
+  border-radius: 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 button.btn-outline {
@@ -854,8 +886,16 @@ article .avatar img {
 }
 
 /* ---------- PROFILE ---------- */
-.profile-avatar {
-  margin-bottom: 20px;
+.profile-page {
+  width: 100%;
+  height: 100%;
+  padding: 10px 0px;
+}
+
+.profile-page form {
+  text-align: left;
+  color: var(--blue-d);
+  height: 100%;
 }
 
 .profile-page .user-img img {
@@ -863,13 +903,13 @@ article .avatar img {
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  border: solid rgb(125, 168, 182) 2px;
+  border: solid var(--blue-m) 2px;
 }
 
 .profile-page input {
   margin: 5px;
   width: 100%;
-  max-width: 350px;
+  max-width: 98%;
   padding: 1em;
   box-sizing: border-box;
   display: block;
@@ -879,8 +919,54 @@ article .avatar img {
   border-radius: 5px;
 }
 
-.profile-page form label {
-  text-align: left;
+.profile-avatar {
+  border: solid blue 0px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile-avatar-label {
+  border: solid blue 0px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: var(--blue-m);
+}
+
+.profile-avatar .user-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-btn-cntr {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-btn-cntr button {
+  font-size: 12px;
+  width: 30%;
+  padding: 8px 5px;
+}
+
+.profile-page h3 {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.profile-page h3,
+p {
+  margin: 0;
+}
+
+.profile-page p {
+  margin-bottom: 10px;
 }
 
 .group-members-box {
@@ -890,16 +976,23 @@ article .avatar img {
   align-items: center;
 }
 
+.group-members-box .user-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+
 .group-members-box .user-img img {
   border: solid var(--blue-m) 2px;
-  max-width: 25px;
-  height: 25px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .group-members-details {
   border: solid green 0px;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -907,7 +1000,7 @@ article .avatar img {
 
 .group-members-details input {
   margin: 5px;
-  width: 45%;
+  width: 50%;
   max-width: 350px;
   padding: 1em;
   box-sizing: border-box;
@@ -919,41 +1012,34 @@ article .avatar img {
 }
 
 .remove-btn {
-  height: 12px;
+  height: 13px;
   width: 13px;
   padding: 0px;
   margin: 0px;
-  /* border: solid var(--blue-d) 1px; */
-  border-radius: 50%;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--txt-clr-l);
-  background-color: var(--blue-d);
-  text-transform: uppercase;
+  color: var(--blue-d);
   cursor: pointer;
 }
 
 .invite-btn {
-  width: 25%;
+  width: auto;
   float: right;
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  color: var(--blue-d);
+  color: var(--white);
   background-color: var(--yellow);
   text-transform: uppercase;
   padding: 5px 10px;
-  font-size: 10px;
-  margin: 5px 20px;
+  font-size: 12px;
+  margin: 0px 20px;
 }
 
 .invite-btn svg {
   width: auto;
-  height: 10px;
+  height: 12px;
   margin-right: 5px;
 }
 
 .invite-btn svg path {
-  fill: var(--blue-d);
+  fill: var(--white);
 }
