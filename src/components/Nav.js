@@ -7,13 +7,13 @@ export default function Nav() {
   return (
     <nav>
       <NavLink to="/">
-        <img src={homeIcon} alt="Home Icon" />
+        <img className="nav-icon" src={homeIcon} alt="Home Icon" />
       </NavLink>
       <NavLink to="/create">
-        <img src={createIcon} alt="Create Icon" />
+        <img className="nav-icon" src={createIcon} alt="Create Icon" />
       </NavLink>
       <NavLink to="/profile">
-        <img src={profileIcon} alt="Create Icon" />
+        <img className="nav-icon" src={profileIcon} alt="Profile Icon" />
       </NavLink>
     </nav>
   );
