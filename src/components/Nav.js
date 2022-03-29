@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import homeIcon from "../assets/homeIcon.png";
-import createIcon from "../assets/createIcon.png";
-import profileIcon from "../assets/profileIcon.png";
-import groupCreateIcon from "../assets/groupCreateIcon.png";
+import homeIcon from "../assets/homeIcon.svg";
+import createIcon from "../assets/createIcon.svg";
+import profileIcon from "../assets/profileIcon.svg";
+import groupCreateIcon from "../assets/groupCreateIcon.svg";
 
 export default function Nav() {
   return (

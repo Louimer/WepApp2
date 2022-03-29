@@ -251,7 +251,10 @@ nav a.active {
   background-color: var(--light-green);
   color: var(--green);
 }
-
+.nav-icon {
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg)
+    brightness(119%) contrast(119%);
+}
 /* ---------- TASKS CNTR ---------- */
 .group-cntr {
   width: 100%;
