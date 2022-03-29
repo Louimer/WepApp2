@@ -1,27 +1,31 @@
 import { NavLink } from "react-router-dom";
-import homeIcon from "../assets/homeIcon.svg";
-import createIcon from "../assets/createIcon.svg";
-import profileIcon from "../assets/profileIcon.svg";
-import groupCreateIcon from "../assets/groupCreateIcon.svg";
+import { FaHome } from "react-icons/fa";
+import { MdPostAdd } from "react-icons/md";
+import { CgUser } from "react-icons/cg";
+import { CgUserList } from "react-icons/cg";
 
 export default function Nav() {
   return (
     <nav>
       <NavLink to="/">
-        <img className="nav-icon" src={homeIcon} alt="Home Icon" />
+        <h3 className="nav-icon">
+          <FaHome />
+        </h3>
       </NavLink>
       <NavLink to="/create">
-        <img className="nav-icon" src={createIcon} alt="Create Icon" />
+        <h3 className="nav-icon">
+          <MdPostAdd />
+        </h3>
       </NavLink>
       <NavLink to="/groupcreate">
-        <img
-          className="nav-icon"
-          src={groupCreateIcon}
-          alt="Group Create Icon"
-        />
+        <h3 className="nav-icon">
+          <CgUserList />
+        </h3>
       </NavLink>
       <NavLink to="/profile">
-        <img className="nav-icon" src={profileIcon} alt="Profile Icon" />
+        <h3 className="nav-icon">
+          <CgUser />
+        </h3>
       </NavLink>
     </nav>
   );

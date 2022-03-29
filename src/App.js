@@ -11,7 +11,7 @@ import TopBar from "./components/TopBar";
 import useLocalStorage from "use-local-storage";
 import "./app.css";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
-import sunMoon from "./assets/sunMoon.svg";
+import { WiSolarEclipse } from "react-icons/wi";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -26,7 +26,9 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <button className="DarkModeButton" onClick={switchTheme}>
-        <img className="dark-mode-icon" src={sunMoon} alt="Dark Mode Icon" />
+        <h3 className="dark-mode-icon">
+          <WiSolarEclipse />
+        </h3>
       </button>
       <main>
         <TopBar />
