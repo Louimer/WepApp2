@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
+import { getAuth } from "firebase/auth";
 import placerholder from "../assets/profile-picture.jpg";
 
 export default function UserAvatar({ uid }) {
@@ -8,17 +9,18 @@ export default function UserAvatar({ uid }) {
         image: placerholder,
         name: "Users Name"
     });
+    const auth = getAuth();
 
     useEffect(() => {
         async function getUser() {
-            const docRef = doc(usersRef, uid);
+            const docRef = doc(usersRef, auth.currentUser.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.data()) {
-                setUser(docSnap.data());
+                setUser(prevUser => ({ ...prevUser, ...docSnap.data() }));
             }
         }
         getUser();
-    }, [uid]);
+    }, [auth.currentUser.uid]);
 
     return (
         <div className="avatar">

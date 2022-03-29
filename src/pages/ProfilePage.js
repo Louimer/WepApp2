@@ -9,6 +9,8 @@ export default function ProfilePage({ currentUser }) {
     const [user, setUser] = useState({
         image: placerholder,
     });
+    const [image, setImage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const auth = getAuth();
 
     useEffect( () => {
@@ -26,6 +28,23 @@ export default function ProfilePage({ currentUser }) {
 
 }, [auth.currentUser]);
 
+    function handleImageChange(event) {
+        const file = event.target.files[0];
+        if (file.size < 500000) {
+            // image file size must be below 0,5MB
+            const reader = new FileReader();
+            reader.onload = event => {
+                setImage(event.target.result);
+            };
+            reader.readAsDataURL(file);
+            setErrorMessage(""); // reset errorMessage state
+        } else {
+            // if not below 0.5MB display an error message using the errorMessage state
+            setErrorMessage("The image file is too big!");
+        }
+    }
+
+
     function handleChange(event) {
         const name = event.target.name;
         const value = event.target.value;
@@ -41,11 +60,12 @@ export default function ProfilePage({ currentUser }) {
         event.preventDefault();
 
         const userToUpdate = { name: user.name, image: user.image };
-            console.log(userToUpdate);
         const docRef = doc(usersRef, auth.currentUser.uid);
-
         await setDoc(docRef, userToUpdate);
+
+        console.log(userToUpdate);
     }
+
 
     // Sign out
     function handleSignOut() {
@@ -70,7 +90,7 @@ export default function ProfilePage({ currentUser }) {
         });
     }
 
-    console.log(user.uid, auth.currentuser, user.name)
+    console.log(user.uid, auth.currentuser, user.name, user.image)
 
     return (
         <section className="page">
@@ -79,13 +99,16 @@ export default function ProfilePage({ currentUser }) {
                     <h3>Min bruger</h3>
                         <div className="profile-avatar">
                             <div className="user-img">
-                                <img src={user?.image} alt={user.id} />
+                                <img src={image} alt={user.image} onError={event => (event.target.src = placerholder)} />
                             </div>
-                            <label for="profilbillede" className="profile-avatar-label">Profil billede</label>   
+                            <p className="text-error">{errorMessage}</p>
+
+                            <label for="useravatar" className="profile-avatar-label">Profil billede</label>   
+                            <input type="file" accept="image/*" value="" onChange={handleImageChange} name="image" placeholder="pic" />
                         </div>             
-                        <label for="name">Navn</label>
+                        {/* <label for="name">Navn</label> */}
                             <input type="text" value={user?.name} onChange={handleChange} name="name" placeholder="Navn" />
-                        <label for="email">Email</label>
+                        {/* <label for="email">Email</label> */}
                             <input type="email" value={user?.email} onChange={handleChange} name="email" placeholder="bruger@mail.dk" />
                         <button>Gem</button>
 
@@ -100,7 +123,7 @@ export default function ProfilePage({ currentUser }) {
                 
                     <form onSubmit={submitEvent}>
                         <h3>Min gruppe</h3>
-                        <p>Gruppemedlemmer</p>
+                        {/* <p>Gruppemedlemmer</p> */}
                         <div className="group-members-box">
                             <div className="user-img">
                                 <img src={user?.image} alt={user.id} />
@@ -120,7 +143,7 @@ export default function ProfilePage({ currentUser }) {
                                 <input type="text" className="group-member" value={user?.name} name="name" placeholder="Gruppemedlem" />
                                 <input type="email" className="group-member" value={user?.email} name="email" placeholder="medlem@email.dk" />
                             </div>
-                            <button className="remove-btn" onClick={handleUserDelete} data-id={user.id}>-</button>
+                            <button className="remove-btn" onClick={handleUserDelete} data-id={user.id}>-</button> {/* OBS - pt slet user knap */}
 
                         </div>
 

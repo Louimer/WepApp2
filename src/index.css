@@ -15,14 +15,13 @@
   --black: #232323;
   --blue-d: #080053;
   --blue-m: #52B1E1;
-  --blue-l: #f7ebbe;
-  /* --blue-l: #C7F4FF; */
+  --blue-l: #C7F4FF;
   --yellow: #FFC662;
-  --yellow-l: #FFD895;
+  --yellow-l: #f7ebbe;
 
   --border-r: 10px;
 
-  --font-main: 'montserrat', sans-serif;
+  --font-main: 'Montserrat', 'Raleway', 'Dita', 'Roboto', sans-serif;
   --font-header: 'filson soft', sans-serif;
 }
 
@@ -33,13 +32,15 @@
   --accent: darkred;
 }
 
+/* ----- IMPORTS ----- */
+@import url("https://use.typekit.net/smz2raf.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap');
+
 body {
   color: var(--txt-clr-d);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,7 +80,7 @@ p {
 }
 
 a {
-  color: var(--green);
+  color: var(--blue-m);
 }
 
 .page {
@@ -142,7 +143,7 @@ a {
   transition: 0.5s;
   display: flex;
   flex-direction: row;
-  background-color: var(--blue-l);
+  background-color: var(--yellow-l);
   border-radius: var(--border-r);
   border: solid #52B1E1 2px;
 }
@@ -280,7 +281,9 @@ nav a {
 }
 
 nav a:hover {
-  background-color: var(--light-grey);
+  background-color: var(--blue-d);
+  color: var(--blue-m);
+
   color: var(--txt-clr-d);
 }
 
@@ -317,7 +320,7 @@ nav a.active {
 }
 
 .group-cntr > article:nth-child(2n) {
-  background-color: var(--blue-l);
+  background-color: var(--yellow-l);
 }
 
 .group-cntr > article:first-child {

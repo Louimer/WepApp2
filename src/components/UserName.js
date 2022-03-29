@@ -1,24 +1,27 @@
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
+import { getAuth } from "firebase/auth";
 
 
 export default function UserName({ uid }) {
     const [user, setUser] = useState({
         name: "Name"
     });  
-      
-
-    useEffect(() => {
+    const auth = getAuth();
+    useEffect( () => {
         async function getUser() {
-            const docRef = doc(usersRef, uid);
+        if (auth.currentUser) {
+            setUser(auth.currentUser);
+            const docRef = doc(usersRef, auth.currentUser.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.data()) {
-                setUser(docSnap.data());
+                setUser(prevUser => ({ ...prevUser, ...docSnap.data() }));
             }
         }
-        getUser();
-    }, [uid]);
+    }
+    getUser();
+    }, [auth.currentUser]);
 
     return (
             <span className="user-name">{user.name}</span>

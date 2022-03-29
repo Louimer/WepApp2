@@ -7,7 +7,7 @@ import SignUpPage from "./pages/SignUpPage";
 import GroupCreatePage from "./pages/GroupCreatePage";
 import ProfilePage from "./pages/ProfilePage";
 import Nav from "./components/Nav";
-import TopBar from "./components/TopBar";
+// import TopBar from "./components/TopBar";
 import useLocalStorage from "use-local-storage";
 import "./app.css";
 
@@ -28,7 +28,7 @@ function App() {
         Switch to {theme === "light" ? "dark" : "light"} Theme
       </button>
       <main>
-        <TopBar />
+        {/* <TopBar /> */}
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
