@@ -12,6 +12,7 @@ import useLocalStorage from "use-local-storage";
 import "./app.css";
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import GroupUpdatePage from "./pages/GroupUpdatePage";
 
 function App() {
   const auth = getAuth();
@@ -51,11 +52,12 @@ function App() {
             <Nav />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="signin" element={<SignInPage />} />
-              <Route path="signup" element={<SignUpPage />} />
-              <Route path="profile" element={<ProfilePage />} />
+              <Route path="/signin" element={<SignInPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/groupupdate/:id" element={<GroupUpdatePage />} />
               <Route path="/create" element={<CreatePage />} />
-              <Route path="/update" element={<UpdatePage />} />
+              <Route path="/update/:id" element={<UpdatePage />} />
               <Route path="/groupcreate" element={<GroupCreatePage />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>

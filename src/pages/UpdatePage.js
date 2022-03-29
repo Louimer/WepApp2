@@ -24,7 +24,7 @@ export default function UpdatePage() {
   function handleSubmit(taskToUpdate) {
     const docRef = doc(tasksRef, taskId);
     updateDoc(docRef, taskToUpdate);
-    navigate("/");
+    navigate(`/update/${task.id}`);
   }
 
   function handleDelete() {

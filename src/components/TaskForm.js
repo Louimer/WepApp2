@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function TaskForm({ saveTask, task }) {
   const [title, setTitle] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (task) {
@@ -11,10 +13,12 @@ export default function TaskForm({ saveTask, task }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const taskData = {
       title: title,
     };
     saveTask(taskData);
+    navigate("/");
   }
 
   return (

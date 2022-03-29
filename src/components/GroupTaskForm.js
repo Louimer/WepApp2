@@ -3,7 +3,7 @@ import { addDoc, serverTimestamp } from "@firebase/firestore";
 import { grouptaskRef } from "../firebase-config";
 import { Calendar } from "react-calendar";
 
-export default function GroupTaskForm() {
+export default function GroupTaskForm({ grouptask }) {
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
   const [showCal, setShowCal] = useState(false);
@@ -13,6 +13,7 @@ export default function GroupTaskForm() {
     const newGroupTask = {
       title: title,
       person: person,
+      showCal: showCal,
       uid: "",
       createdAt: serverTimestamp(),
     };

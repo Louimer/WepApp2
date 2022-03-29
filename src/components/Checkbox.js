@@ -3,43 +3,40 @@ console.clear();
 export default function Checkbox() {
   return (
     <>
-      <svg>
-        <defs>
-          <linearGradient
-            id="boxGradient"
-            gradientUnits="userSpaceOnUse"
-            x1="0"
-            y1="0"
-            x2="25"
-            y2="25"
-          >
-            <stop offset="0%" stopColor="blue" />
-            <stop offset="100%" stopColor="lightblue" />
-          </linearGradient>
+      <div className="svg_container">
+        <svg>
+          <defs>
+            <linearGradient
+              id="boxGradient"
+              gradientUnits="userSpaceOnUse"
+              x1="0"
+              y1="0"
+              x2="2"
+              y2="2"
+            >
+              <stop offset="0%" stopColor="blue" />
+              <stop offset="30%" stopColor="lightblue" />
+            </linearGradient>
 
-          <linearGradient id="lineGradient">
-            <stop offset="0%" stopColor="blue" />
-            <stop offset="100%" stopColor="lightblue" />
-          </linearGradient>
+            <linearGradient id="lineGradient">
+              <stop offset="0%" stopColor="blue" />
+              <stop offset="100%" stopColor="lightblue" />
+            </linearGradient>
 
-          <path
-            id="todo__line"
-            stroke="url(#lineGradient)"
-            d="M21 12.3h168v0.1z"
-          ></path>
-          <path
-            id="todo__box"
-            stroke="url(#boxGradient)"
-            d="M21 12.7v5c0 1.3-1 2.3-2.3 2.3H8.3C7 20 6 19 6 17.7V7.3C6 6 7 5 8.3 5h10.4C20 5 21 6 21 7.3v5.4"
-          ></path>
-          <path
-            id="todo__check"
-            stroke="url(#boxGradient)"
-            d="M10 13l2 2 5-5"
-          ></path>
-          <circle id="todo__circle" cx="13.5" cy="12.5" r="10"></circle>
-        </defs>
-      </svg>
+            <path
+              id="todo__box"
+              stroke="url(#boxGradient)"
+              d="M21 12.7v5c0 1.3-1 2.3-2.3 2.3H8.3C7 20 6 19 6 17.7V7.3C6 6 7 5 8.3 5h10.4C20 5 21 6 21 7.3v5.4"
+            ></path>
+            <path
+              id="todo__check"
+              stroke="url(#boxGradient)"
+              d="M10 13l2 2 5-5"
+            ></path>
+            <circle id="todo__circle" cx="1" cy="1" r="1"></circle>
+          </defs>
+        </svg>
+      </div>
 
       <div className="todo-list">
         <label className="todo">

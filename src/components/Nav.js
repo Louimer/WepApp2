@@ -8,6 +8,8 @@ export default function Nav() {
       <NavLink to="/create">Create</NavLink>
       <NavLink to="/update">Update</NavLink>
       <NavLink to="/profile">Profil</NavLink>
+      <NavLink to="/groupupdate">update group</NavLink>
+      <NavLink to="/groupcreate">create group</NavLink>
     </nav>
   );
 }
