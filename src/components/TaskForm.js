@@ -30,7 +30,9 @@ export default function TaskForm({ saveTask, task }) {
 
       <br></br>
 
-      <button type="submit">Opret ny opgave</button>
+      <button className="add-job-button" type="submit">
+        +
+      </button>
     </form>
   );
 }

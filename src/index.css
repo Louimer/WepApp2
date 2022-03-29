@@ -483,7 +483,7 @@ p {
   max-width: 350px;
 }
 
-/* --- Calendar componenet styling */
+/* --- Calendar component styling */
 
 .react-calendar:active {
   display: block;
@@ -543,7 +543,16 @@ button.btn-outline {
   font-size: 0.7em;
   padding: 2.032em 1em;
 }
+/*Add button styling*/
 
+.add-job-button {
+  color: white;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  font-size: 1.6em;
+  letter-spacing: 0;
+}
 input {
   margin: 1em auto;
   width: 100%;
