@@ -22,7 +22,7 @@ export default function TaskForm({ saveTask, task }) {
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label className="taskform_label">
         <input
           placeholder="Hvilken opgave?"
@@ -34,9 +34,7 @@ export default function TaskForm({ saveTask, task }) {
 
       <br></br>
 
-      <button type="submit" onSubmit={handleSubmit}>
-        Gem
-      </button>
+      <button type="submit">Gem</button>
     </form>
   );
 }

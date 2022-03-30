@@ -3,9 +3,14 @@ import { tasksRef } from "../firebase-config";
 import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime updates. Snakker sammen med en constant -
 import { useState, useEffect } from "react";
 import PostCard from "../components/PostCard";
+import { getAuth } from "firebase/auth";
+import { addDoc, serverTimestamp } from "@firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 export default function CreatePage() {
   const [tasks, setTasks] = useState([]); //gemmer alt data i et state
+  const navigate = useNavigate();
+  const auth = getAuth();
 
   useEffect(() => {
     const q = query(tasksRef, orderBy("createdAt", "desc")); // order by: lastest post first
@@ -19,11 +24,18 @@ export default function CreatePage() {
     return () => unsubscribe();
   }, []);
 
+  async function handleSubmit(newTask) {
+    newTask.createdAt = serverTimestamp(); // timestamp (now)
+    newTask.uid = auth.currentUser.uid; // uid of auth user / signed in user
+    await addDoc(tasksRef, newTask); // add new doc - new post object
+    navigate("/");
+  }
+
   return (
     <section className="page">
       <section className="card">
         <h1>Create Page</h1>
-        <TaskForm />
+        <TaskForm saveTask={handleSubmit} />
       </section>
       <section className="createtask_container">
         {tasks.map(

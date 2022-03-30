@@ -43,12 +43,12 @@ export default function SignUpPage() {
             type="file"
             id="img"
             accept="image/*"
-            onchange="previewImage(this.files[0], 'imagePreview')"
+            onChange="previewImage(this.files[0], 'imagePreview')"
           />
           <img
-            src="../assets/profile-picture.jpg"
+            src="../assets/profile-picture.gif"
             id="imagePreview"
-            class="image-preview"
+            className="image-preview"
             alt="placeholder"
           />
           <input
