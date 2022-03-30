@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
 export default function SignUpPage() {
   const [errorMessage, setErrorMessage] = React.useState("");
   const navigate = useNavigate();
@@ -56,12 +57,14 @@ export default function SignUpPage() {
             name="name"
             placeholder="Hvad skal vi kalde dig?"
           />
-          <input type="email" name="mail" placeholder="Email" />
+          <input type="email" name="mail" placeholder="Hvad er din mail?" />
           <input type="password" name="password" placeholder="Adgangskode" />
           <p className="text-error">{errorMessage}</p>
           <button className="signin-btn">Opret</button>
           <p className="text-center">
-            Har du en bruger? <Link to="/signin">Log ind</Link>
+            <strong>Har du en bruger? </strong>
+
+            <Link to="/signin">Log ind</Link>
           </p>
         </form>
       </div>

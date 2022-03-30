@@ -31,15 +31,15 @@ export default function GroupUpdatePage() {
     const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
     if (confirmDelete) {
       const docRef = doc(grouptaskRef, grouptask.id);
-      await deleteDoc(docRef);
       navigate("/");
+      await deleteDoc(docRef);
     }
   }
 
   return (
     <section className="page">
       <h1>Group Update Page</h1>
-      <GroupTaskForm savegroupTask={handleSubmit} grouptask={grouptask} />
+      <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
       <button onClick={handleDelete}>Delete</button>
     </section>
   );

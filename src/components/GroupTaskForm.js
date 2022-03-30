@@ -1,24 +1,30 @@
-import { useState } from "react";
-import { addDoc, serverTimestamp } from "@firebase/firestore";
-import { grouptaskRef } from "../firebase-config";
+import { useState, useEffect } from "react";
 import { Calendar } from "react-calendar";
+import { useNavigate } from "react-router-dom";
 
-export default function GroupTaskForm({ grouptask }) {
+export default function GroupTaskForm({ saveGroupTask, grouptask }) {
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
   const [showCal, setShowCal] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (grouptask) {
+      setTitle(grouptask.title);
+    }
+  }, [grouptask]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    const newGroupTask = {
+
+    const grouptaskData = {
       title: title,
       person: person,
       showCal: showCal,
-      uid: "",
-      createdAt: serverTimestamp(),
     };
-    addDoc(grouptaskRef, newGroupTask);
-    console.log(newGroupTask);
+
+    saveGroupTask(grouptaskData);
+    navigate("/");
   }
 
   return (
@@ -37,7 +43,7 @@ export default function GroupTaskForm({ grouptask }) {
         Skal opgaven udføres en bestemt dag?
         <input
           placeholder=""
-          value={showCal}
+          value={grouptask.showCal}
           type="checkbox"
           onChange={() => setShowCal((prevShowCal) => !prevShowCal)}
         />

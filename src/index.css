@@ -70,7 +70,12 @@ p {
 a {
   color: var(--green);
 }
-
+.react-calendar__tile abbr:active {
+  background-color: #d31f5b;
+}
+.react-calendar__tile abbr::selection {
+  background-color: #d31f5b;
+}
 .App,
 .page {
   color: var(--text-primary);
@@ -87,6 +92,9 @@ a {
 .text-center {
   text-align: center;
   padding-top: 10%;
+}
+.text-center a {
+  padding-left: 2%;
 }
 .text-error {
   color: var(--txt-clr-danger);
