@@ -41,7 +41,8 @@ export default function SignInPage() {
           <button className="signin-btn">Log ind</button>
         </form>
         <p className="text-center">
-          <Link to="/signup">Opret bruger</Link>
+          Er du ny her? <br></br>Så klik på  
+          <Link to="/signup">Opret bruger</Link> 
         </p>
       </div>
     </section>

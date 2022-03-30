@@ -43,14 +43,20 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <button id="DarkModeButton" onClick={switchTheme}>
-        <h3 className="dark-mode-icon">
-          <WiSolarEclipse />
-        </h3>
-      </button>
-      <h1 className="header_logo">
-        Task<span>Roomies</span>
-      </h1>
+      <div className="header-cntr">
+        <div className="header-logo-box">
+          <h1 className="header_logo">
+            Task<span>Roomies</span>
+          </h1>
+        </div>
+        <div className="darkmode-btn-box">
+          <button id="DarkModeButton" onClick={switchTheme}>
+            {/* <h3 className="dark-mode-icon"> */}
+            <WiSolarEclipse />
+            {/* </h3> */}
+          </button>
+        </div>
+      </div>
 
       <main>
         {isAuth ? (
