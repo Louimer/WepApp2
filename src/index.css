@@ -1,36 +1,30 @@
 /* ---------- ROOTS ---------- */
 :root {
   --green: #f39e0a; /*knapper og aktive links*/
-  --light-green: rgb(172, 198, 201);
   --light-grey: #f1f1f4;
   --txt-clr-l: #f1f1f1;
   --txt-clr-d: #333;
   --txt-clr-danger: rgb(152, 58, 58);
 
   /* --bg: #c3cfd3; */
+
   /* --bg: #f1f1f1; */
-  --bg: #72617e;
+  --background: #72617e;
 
   /*background: linear-gradient(312deg, rgba(251,249,250,1) 0%, rgba(12,39,138,1) 3%, rgba(93,39,148,1) 91%); darkmode*/
   --white: #f1f1f1;
   --black: #232323;
   --blue-d: #2d1e2f;
+
   --blue-m: #52b1e1;
   --blue-l: #f6f8fa;
   --yellow: #ffc662;
   --yellow-l: #ffd895;
-
+  --nav: #2d1e2f;
   --border-r: 10px;
 
   --font-main: "montserrat", sans-serif;
   --font-header: "filson soft", sans-serif;
-}
-
-[data-theme="dark"] {
-  --background: black;
-  --text-primary: white;
-  --text-secondary: grey;
-  --accent: darkred;
 }
 
 /* ----- IMPORTS ----- */
@@ -41,20 +35,16 @@ body {
   color: var(--txt-clr-d);
   padding: 0;
   margin: 0;
+  top: 0;
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-main {
-  padding: 20px 0 0;
-  background-color: var(--bg);
-  background-image: var(--bg-gradient);
 }
 
 h1 {
@@ -81,13 +71,17 @@ a {
   color: var(--green);
 }
 
+.App,
 .page {
-  background-color: var(--bg);
-  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+.page {
   color: var(--blue-d);
   min-height: calc(100vh - 58px - 2em);
   padding: 1em;
   padding-bottom: 100px;
+  transition: all 0.5s;
 }
 
 .text-center {
@@ -264,7 +258,7 @@ a {
 
 /* ---------- NAV ---------- */
 nav {
-  background-color: var(--blue-d);
+  background-color: var(--nav);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -285,7 +279,6 @@ nav a:hover {
 }
 
 nav a.active {
-  background-color: var(--blue-d);
   color: var(--green);
 }
 
@@ -755,7 +748,7 @@ p {
 
 .react-calendar__navigation button {
   color: var(--txt-clr-l);
-  background-color: var(--bg);
+  background-color: var(--background);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.4em 0.8em;
@@ -765,7 +758,7 @@ p {
 
 .react-calendar__tile {
   color: var(--txt-clr-l);
-  background-color: var(--bg);
+  background-color: var(--background);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.4em 0.8em;
@@ -791,7 +784,7 @@ select {
   padding: 1em;
   box-sizing: border-box;
   display: block;
-  background: var(--white);
+  background: #f1f1f1;
   border: solid 2px grey;
 }
 /* ---------- FORM ---------- */
@@ -856,7 +849,7 @@ input {
   padding: 1em;
   box-sizing: border-box;
   display: block;
-  background: var(--white);
+  background: #f1f1f1;
   border: solid 2px grey;
 }
 
@@ -872,38 +865,6 @@ input {
 
 form .file-input {
   display: none;
-}
-
-/* ---------- LOADER ---------- */
-.loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 99999999;
-  overflow: hidden;
-  background: var(--loader-background-color);
-  text-align: center;
-}
-
-.spinner {
-  border: 5px solid var(--light-green);
-  border-radius: 50%;
-  border-top: 5px solid var(--green);
-  width: 50px;
-  height: 50px;
-  -webkit-animation: spin 1s linear infinite;
-  /* Safari */
-  animation: spin 1s linear infinite;
-  display: inline-block;
-  vertical-align: middle;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 
 .hide {
@@ -1096,3 +1057,33 @@ p {
 .invite-btn svg path {
   fill: var(--white);
 }
+
+/*dark mode*/
+[data-theme="dark"] {
+  --background: black;
+  --text-primary: white;
+  --text-secondary: grey;
+  --green: #bb7907; /*knapper og aktive links*/
+  --light-grey: #f1f1f4;
+  --txt-clr-l: #f1f1f1;
+  --txt-clr-d: #333;
+  --white: #2d1e2f;
+  --black: #232323;
+  --blue-d: #f1f1f1;
+  --blue-m: #52b1e1;
+  --blue-l: #2d1e2f;
+  --nav: #72617e;
+}
+
+/*#DarkModeButton {
+  z-index: 1000;
+  font-size: 2em;
+  float: right;
+  padding: 0;
+  margin: 0.1em;
+  color: Black;
+  background-color: White;
+  width: fit-content;
+  height: fit-content;
+  line-height: -3em;
+}*/

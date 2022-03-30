@@ -55,7 +55,6 @@ export default function HomePage() {
         <br></br>
         <h2 className="cntr-title">Mine opgaver</h2>
         <div className="group-cntr">
-         
           {tasks.map(
             (
               task //til at kigge på array

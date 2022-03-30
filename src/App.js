@@ -14,11 +14,9 @@ import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
 import { WiSolarEclipse } from "react-icons/wi";
+import "./index.css";
 
 function App() {
-  const auth = getAuth();
-  const [isAuth, setIsAuth] = React.useState(localStorage.getItem("isAuth"));
-
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
@@ -29,6 +27,9 @@ function App() {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
+
+  const auth = getAuth();
+  const [isAuth, setIsAuth] = React.useState(localStorage.getItem("isAuth"));
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -42,14 +43,14 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <h1 className="header_logo">
-        Task<span>Roomies</span>
-      </h1>
-      <button className="DarkModeButton" onClick={switchTheme}>
+      <button id="DarkModeButton" onClick={switchTheme}>
         <h3 className="dark-mode-icon">
           <WiSolarEclipse />
         </h3>
       </button>
+      <h1 className="header_logo">
+        Task<span>Roomies</span>
+      </h1>
 
       <main>
         {isAuth ? (
