@@ -516,7 +516,7 @@ p {
 .svg_container {
   display: block;
   width: 100%;
-  height: 20%;
+  height: 25%;
 }
 
 .checkbox_svg {
@@ -537,11 +537,13 @@ p {
   display: block;
   position: absolute;
   height: 20vh;
-  width: 30vh;
+  width: 35vh;
   cursor: pointer;
   border-bottom: solid 1px #ddd;
   z-index: 2;
   padding-left: 2%;
+  padding-bottom: 5%;
+  margin-bottom: 30%;
 }
 
 .todo:last-child {
@@ -561,13 +563,14 @@ p {
 .todo__icon {
   z-index: 0;
   width: 90%;
-  height: 20%;
+  height: 40%;
   margin: auto;
   fill: none;
   stroke: #4e27fd;
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
+  
 }
 
 .todo__line,
@@ -613,6 +616,7 @@ p {
   stroke-dasharray: 56.1053, 56.1053;
   stroke-dashoffset: 0;
   transition-delay: 0.16s;
+  height: 20px;
 }
 .todo__check {
   stroke: #27fdc7;

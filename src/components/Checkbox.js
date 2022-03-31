@@ -1,5 +1,3 @@
-console.clear();
-
 export default function Checkbox() {
   return (
     <>
@@ -19,7 +17,7 @@ export default function Checkbox() {
 
           <linearGradient id="lineGradient">
             <stop offset="0%" stopColor="blue" />
-            <stop offset="100%" stopColor="lightblue" />
+            <stop offset="70%" stopColor="lightblue" />
           </linearGradient>
           <path
             id="todo__line"
@@ -51,7 +49,9 @@ export default function Checkbox() {
           <svg
             className="todo__icon"
             xmlns="http://www.w3.org/2000/svg"
-            xmlnsXLink="http://www.w3.org/1999/xlink"
+            xmlnsxlink="http://www.w3.org/1999/xlink"
+            viewBox="0 10 130 20"
+            class="todo__icon"
           >
             <use xlinkHref="#todo__line" className="todo__line"></use>
             <use xlinkHref="#todo__box" className="todo__box"></use>
