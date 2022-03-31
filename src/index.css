@@ -1113,7 +1113,8 @@ p {
   width: 13px;
   padding: 0px;
   margin: 0px;
-  color: var(--blue-d);
+  color: var(--yellow);
+  background-color: transparent;
   cursor: pointer;
 }
 

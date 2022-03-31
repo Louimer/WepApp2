@@ -1,27 +1,31 @@
 import { NavLink } from "react-router-dom";
-import homeIcon from "../assets/homeIcon.png";
-import createIcon from "../assets/createIcon.png";
-import profileIcon from "../assets/profileIcon.png";
-import groupCreateIcon from "../assets/groupCreateIcon.png";
+import { FaHome } from "react-icons/fa";
+import { MdPostAdd } from "react-icons/md";
+import { BsPerson } from "react-icons/bs";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 
 export default function Nav() {
   return (
     <nav>
       <NavLink to="/">
-        <img className="nav-icon" src={homeIcon} alt="Home Icon" />
+        <h3 className="nav-icon">
+          <FaHome size={30} />
+        </h3>
       </NavLink>
       <NavLink to="/create">
-        <img className="nav-icon" src={createIcon} alt="Create Icon" />
+        <h3 className="nav-icon">
+          <MdPostAdd size={30} />
+        </h3>
       </NavLink>
       <NavLink to="/groupcreate">
-        <img
-          className="nav-icon"
-          src={groupCreateIcon}
-          alt="Group Create Icon"
-        />
+        <h3 className="nav-icon">
+          <AiOutlineUsergroupAdd size={30} />
+        </h3>
       </NavLink>
       <NavLink to="/profile">
-        <img className="nav-icon" src={profileIcon} alt="Profile Icon" />
+        <h3 className="nav-icon">
+          <BsPerson size={30} />
+        </h3>
       </NavLink>
     </nav>
   );
