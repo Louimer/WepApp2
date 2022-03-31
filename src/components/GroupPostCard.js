@@ -1,3 +1,4 @@
+//Louise
 import Checkbox from "../components/Checkbox";
 import { useNavigate } from "react-router-dom";
 
@@ -22,8 +23,8 @@ export default function GroupPostCard({ grouptask }) {
           <div className="postcard-elem-todotext">
             <div className="todo__text">
               <h3>{grouptask.title}</h3>
-              <h3>{grouptask.showCal}</h3>
               <p>{grouptask.person}</p>
+              <p>{grouptask.date}</p>
             </div>
           </div>
 

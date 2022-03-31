@@ -1,3 +1,4 @@
+//Louise
 import Checkbox from "../components/Checkbox";
 import { useNavigate } from "react-router-dom";
 export default function PostCard({ task }) {
@@ -22,8 +23,7 @@ export default function PostCard({ task }) {
           <div className="postcard-elem-todotext">
             <div className="todo__text">
               <h3>{task.title}</h3>
-              <br></br>
-              <h6>{task.date}</h6>
+              <p>{task.date}</p>
             </div>
           </div>
 

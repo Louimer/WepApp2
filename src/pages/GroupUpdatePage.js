@@ -1,3 +1,4 @@
+//Louise
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GroupTaskForm from "../components/GroupTaskForm";
@@ -39,12 +40,11 @@ export default function GroupUpdatePage() {
 
   return (
     <section className="page">
-      <h1>Group Update Page</h1>
+      <h1>Rediger gruppeopgave</h1>
       <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
       <button onClick={handleDelete}>
         {" "}
         <FaRegTrashAlt size={20} />
-        
       </button>
     </section>
   );

@@ -1,3 +1,4 @@
+//Louise
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -49,7 +50,7 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
           <option value="Christian"> Christian </option>
 
           <option value="Louise">Louise</option>
-          <option value="Fælles for alle">Fælles opgave</option>
+          <option value="Fælles opgave">Fælles opgave</option>
         </select>
       </label>
       <br></br>

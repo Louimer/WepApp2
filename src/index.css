@@ -527,7 +527,7 @@ p {
   color: saturate(#1b4a4e, 15%);
   transition-duration: 0.2 linear;
   font-size: 0.9em;
-  padding-top: 6%;
+  padding-top: 5%;
 }
 .todo__text p {
   font-size: 0.7em;
@@ -556,9 +556,7 @@ p {
   opacity: 0;
 }
 .group-cntr article h3 {
-  position: absolute;
   text-align: left;
-  padding-top: 2%;
 }
 .todo__icon {
   z-index: 0;
@@ -570,7 +568,6 @@ p {
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
-  
 }
 
 .todo__line,
@@ -671,12 +668,6 @@ p {
   width: 30%;
   height: 30%;
   margin: 0 auto;
-}
-.checkbox_delete_container button {
-  border: solid #882709c7;
-  background-color: #c7626236;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-  font-size: 0.7em;
 }
 
 #checkbox_delete {
@@ -898,6 +889,7 @@ p {
 }
 
 select {
+  -webkit-appearance: none;
   margin: 1em auto;
   width: 100%;
   max-width: 350px;

@@ -1,3 +1,4 @@
+//Louise
 import TaskForm from "../components/TaskForm";
 import { tasksRef } from "../firebase-config";
 import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime updates. Snakker sammen med en constant -
@@ -34,7 +35,8 @@ export default function CreatePage() {
   return (
     <section className="page">
       <section className="card">
-        <h1>Create Page</h1>
+        <h1>Opret en ny opgave</h1>
+        <p></p>
         <TaskForm saveTask={handleSubmit} />
       </section>
       <section className="createtask_container">

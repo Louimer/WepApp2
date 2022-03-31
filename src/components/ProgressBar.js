@@ -1,5 +1,6 @@
+//Louise
 import React from "react";
-//https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl
+// fra https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl
 //ikke funktionel, men er der for at vise ideen bag. 
 
 const ProgressBar = (props) => {
