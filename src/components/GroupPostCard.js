@@ -1,23 +1,21 @@
-// import Checkbox from "../components/GroupCheckbox";
+import Checkbox from "../components/Checkbox";
 import { useNavigate } from "react-router-dom";
-// import Checkbox from "../components/Checkbox";
 
 export default function GroupPostCard({ grouptask }) {
   //prop er task, kunne kaldes alt mulig. skal matche med det data der hentes fra firebase.
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`grouptasks/${grouptask.id}`);
+    navigate(`groupupdate/${grouptask.id}`);
   }
 
   return (
     <>
       <article>
         <div className="PostCard_cntr">
-
           <div className="postcard-elem-checkbox">
             <div className="checkbox_div">
-              {/* <Checkbox /> */}
+              <Checkbox />
             </div>
           </div>
 
@@ -34,7 +32,6 @@ export default function GroupPostCard({ grouptask }) {
               <button onClick={handleClick}>update</button>
             </div>
           </div>
-     
         </div>
       </article>
     </>

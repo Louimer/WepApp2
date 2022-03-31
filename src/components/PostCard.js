@@ -1,4 +1,4 @@
-// import Checkbox from "../components/Checkbox";
+import Checkbox from "../components/Checkbox";
 import { useNavigate } from "react-router-dom";
 export default function PostCard({ task }) {
   //prop er task, kunne kaldes alt mulig. skal matche med det data der hentes fra firebase.
@@ -6,7 +6,7 @@ export default function PostCard({ task }) {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`posts/${task.id}`);
+    navigate(`/update/${task.id}`);
   }
 
   return (
@@ -15,23 +15,23 @@ export default function PostCard({ task }) {
         <div className="PostCard_cntr">
           <div className="postcard-elem-checkbox">
             <div className="checkbox_div">
-              {/* <Checkbox /> */}
+              <Checkbox />
             </div>
           </div>
 
           <div className="postcard-elem-todotext">
-            <div className="todo-text">
+            <div className="todo__text">
               <h3>{task.title}</h3>
             </div>
           </div>
 
           <div className="postcard-elem-updatebtn">
             <div className="update">
-              <button className="post-update-btn" onClick={handleClick}>update</button>
+              <button className="post-update-btn" onClick={handleClick}>
+                update
+              </button>
             </div>
           </div>
-            
-          
         </div>
       </article>
     </>
