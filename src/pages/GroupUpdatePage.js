@@ -6,6 +6,8 @@ import { grouptaskRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 import { FaRegTrashAlt } from "react-icons/fa";
+import {  AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function GroupUpdatePage() {
   const navigate = useNavigate();
@@ -41,6 +43,9 @@ export default function GroupUpdatePage() {
   return (
     <section className="page">
       <h1>Rediger gruppeopgave</h1>
+      <Link to="/"><AiOutlineArrowLeft size={30} />  <br></br></Link> 
+        <br></br>
+
       <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
       <button onClick={handleDelete}>
         {" "}

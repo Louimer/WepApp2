@@ -6,6 +6,8 @@ import { tasksRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function UpdatePage() {
   const navigate = useNavigate();
@@ -41,6 +43,10 @@ export default function UpdatePage() {
   return (
     <section className="page">
       <h1>Rediger opgave</h1>
+      <Link to="/">
+        <AiOutlineArrowLeft size={30} /> <br></br>
+      </Link>
+      <br></br>
       <TaskForm saveTask={handleSubmit} task={task} />
       <div className="checkbox_delete_container">
         <button onClick={handleDelete}>

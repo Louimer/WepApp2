@@ -7,6 +7,8 @@ import PostCard from "../components/PostCard";
 import { getAuth } from "firebase/auth";
 import { addDoc, serverTimestamp } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import {  AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function CreatePage() {
   const [tasks, setTasks] = useState([]); //gemmer alt data i et state
@@ -36,7 +38,10 @@ export default function CreatePage() {
     <section className="page">
       <section className="card">
         <h1>Opret en ny opgave</h1>
-        <p></p>
+    
+        <Link to="/"><AiOutlineArrowLeft size={30} />  <br></br></Link> 
+        <br></br>
+
         <TaskForm saveTask={handleSubmit} />
       </section>
       <section className="createtask_container">

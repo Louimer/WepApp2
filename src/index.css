@@ -375,6 +375,9 @@ nav a.active {
   color: var(--green);
 }
 
+.back_button {
+  
+}
 /* ---------- TASKS CNTR ---------- */
 .group-cntr {
   width: 100%;

@@ -7,6 +7,8 @@ import GroupPostCard from "../components/GroupPostCard";
 import { getAuth } from "firebase/auth";
 import { addDoc, serverTimestamp } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function CreatePage() {
   const [grouptask, setGroupTask] = useState([]); //gemmer alt data i et state
@@ -36,6 +38,11 @@ export default function CreatePage() {
     <section className="page">
       <section className="card">
         <h1> Opret en ny opgave til din gruppeliste</h1>
+        <Link to="/">
+          <AiOutlineArrowLeft size={30} /> <br></br>
+        </Link>
+        <br></br>
+
         <GroupTaskForm saveGroupTask={handleSubmit} />
       </section>
       <section className="createtask_container">
