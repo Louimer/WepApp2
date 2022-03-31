@@ -1,3 +1,4 @@
+//Christian
 import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
@@ -16,8 +17,8 @@ import GroupUpdatePage from "./pages/GroupUpdatePage";
 import { WiSolarEclipse } from "react-icons/wi";
 import "./index.css";
 
-
 function App() {
+  //Dark mode function der med en knap gør det muligt at skifte mellem 2 forskellige farvetemaer
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
@@ -58,9 +59,7 @@ function App() {
           </button>
         </div>
       </div>
-    
 
- 
       <main>
         {isAuth ? (
           <>
