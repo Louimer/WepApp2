@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Calendar } from "react-calendar";
 import { useNavigate } from "react-router-dom";
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
-  const [showCal, setShowCal] = useState(false);
+  const [date, setDate] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     const grouptaskData = {
       title: title,
       person: person,
-      showCal: showCal,
+      date: date,
     };
     saveGroupTask(grouptaskData);
     navigate("/");
@@ -46,11 +45,11 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         >
           <option value="">Hvordan skal opgaven fordeles?</option>
           <option value="Sofie">Sofie</option>
-         
-            <option value="Christian"> Christian </option>
-         
+
+          <option value="Christian"> Christian </option>
+
           <option value="Louise">Louise</option>
-          <option value="Bille">Bille</option>
+          <option value="Fælles for alle">Fælles opgave</option>
         </select>
       </label>
       <br></br>
@@ -58,11 +57,10 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         Skal opgaven udføres en bestemt dag?
         <input
           placeholder=""
-          value={showCal}
-          type="checkbox"
-          onChange={(e) => setShowCal((prevShowCal) => !prevShowCal)}
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
         />
-        {showCal && <Calendar />}
       </label>
 
       <button type="submit">Gem</button>

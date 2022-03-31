@@ -42,8 +42,8 @@ export default function HomePage() {
       {/* <h1>HomePage</h1> */}
       <br></br>
       <section className="grid-container">
-        <h2 className="cntr-title">Gruppeopgaver</h2>
         <div className="group-cntr">
+          <h2 className="cntr-title">Gruppeopgaver</h2>
           {grouptasks.map(
             (
               grouptask //til at kigge på array
@@ -53,8 +53,9 @@ export default function HomePage() {
           )}
         </div>
         <br></br>
-        <h2 className="cntr-title">Mine opgaver</h2>
+
         <div className="group-cntr">
+          <h2 className="cntr-title">Mine opgaver</h2>
           {tasks.map(
             (
               task //til at kigge på array
