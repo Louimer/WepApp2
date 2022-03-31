@@ -375,9 +375,48 @@ nav a.active {
   color: var(--green);
 }
 
-.back_button {
-  
+.notif-box {
+  border: solid blue 0px;
+  height: 20px;
+  width: 90%;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.notif-box input {
+  height: 16px;
+  width: 16px;
+}
+.notif_label {
+  margin-top: 10%;
+}
+
+.notif-box div {
+  border: solid red 0px;
+  height: 100%;
+  margin: 2px 0px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.notif-box div p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0px 0px 0px 5px;
+}
+
+.notif-box div svg {
+  height: 14px;
+  width: 14px;
+  color: var(--blue-d);
+}
+
 /* ---------- TASKS CNTR ---------- */
 .group-cntr {
   width: 100%;

@@ -29,7 +29,7 @@ export default function GroupUpdatePage() {
     const docRef = doc(grouptaskRef, grouptaskId);
     await updateDoc(docRef, taskToUpdate);
     navigate("/");
-  } //HVORFOR UPDATER DEN IKKE
+  } //
 
   async function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);

@@ -8,7 +8,7 @@ export default function GroupPostCard({ grouptask }) {
 
   function handleClick() {
     navigate(`/groupupdate/${grouptask.id}`);
-  }
+  } //kaldes når brugeren klikker på 'updatpe knappen, og navigere videre til update side.
 
   return (
     <>

@@ -18,7 +18,7 @@ export default function CreatePage() {
   useEffect(() => {
     const q = query(grouptaskRef, orderBy("createdAt", "desc")); // order by: lastest post first
     const unsubscribe = onSnapshot(q, (data) => {
-      //referer til quary i stedet for gruoptasksRef, fordi så kommer den med filterede resultater. unsub gør at man kan kigge på komponenterne, selvom man ikke er på samme side.
+      //referer til quary i stedet for gruoptasksRef, fordi så kommer den med filterede resultater. unsub gør at man kan kigge på komponenterne, selvom man ikke er på samme side.kommer fra firebase, her returneres data fra.
       const grouptaskData = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id }; //henter alt data fra firebase (...doc.data) og sammen med id: doc.id - skriver id'et fra brugeren.
       });
@@ -29,7 +29,7 @@ export default function CreatePage() {
 
   async function handleSubmit(newGroupTask) {
     newGroupTask.createdAt = serverTimestamp(); // timestamp (now)
-    newGroupTask.uid = auth.currentUser.uid; // uid of auth user / signed in user
+    newGroupTask.uid = auth.currentUser.uid; // user-id of auth user / signed in user
     await addDoc(grouptaskRef, newGroupTask); // add new doc - new group object
     navigate("/");
   }

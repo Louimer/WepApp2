@@ -4,6 +4,8 @@ import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 import placerholder from "../assets/profile-picture.gif";
 import { HiMinusCircle } from "react-icons/hi";
+import { FaBell } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage({ currentUser }) {
   const [user, setUser] = useState({
@@ -12,6 +14,7 @@ export default function ProfilePage({ currentUser }) {
   const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const auth = getAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getUser() {
@@ -58,7 +61,9 @@ export default function ProfilePage({ currentUser }) {
     event.preventDefault();
 
     const userToUpdate = { name: user.name, image: user.image };
+
     const docRef = doc(usersRef, auth.currentUser.uid);
+    navigate("/");
     await setDoc(docRef, userToUpdate);
 
     console.log(userToUpdate);
@@ -118,6 +123,7 @@ export default function ProfilePage({ currentUser }) {
             />
           </div>
           {/* <label for="name">Navn</label> */}
+          {/* <label for="name">Navn</label> */}
           <input
             type="text"
             value={user?.name}
@@ -133,6 +139,15 @@ export default function ProfilePage({ currentUser }) {
             name="email"
             placeholder="bruger@mail.dk"
           />
+
+          <label className="notif-box">
+            <div>
+              {" "}
+              <FaBell /> <p>Notifikationer</p>{" "}
+            </div>
+            <input className="notif_label" type="checkbox" name="bellcheckbox" />
+          </label>
+
           <button className="btn">Gem</button>
 
           <div className="profile-btn-cntr">

@@ -7,7 +7,7 @@ import PostCard from "../components/PostCard";
 import { getAuth } from "firebase/auth";
 import { addDoc, serverTimestamp } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import {  AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 export default function CreatePage() {
@@ -29,8 +29,8 @@ export default function CreatePage() {
 
   async function handleSubmit(newTask) {
     newTask.createdAt = serverTimestamp(); // timestamp (now)
-    newTask.uid = auth.currentUser.uid; // uid of auth user / signed in user
-    await addDoc(tasksRef, newTask); // add new doc - new post object
+    newTask.uid = auth.currentUser.uid; // user-id of auth user / signed in user
+    await addDoc(tasksRef, newTask); // poster ny task på homepage
     navigate("/");
   }
 
@@ -38,8 +38,10 @@ export default function CreatePage() {
     <section className="page">
       <section className="card">
         <h1>Opret en ny opgave</h1>
-    
-        <Link to="/"><AiOutlineArrowLeft size={30} />  <br></br></Link> 
+
+        <Link to="/">
+          <AiOutlineArrowLeft size={30} /> <br></br>
+        </Link>
         <br></br>
 
         <TaskForm saveTask={handleSubmit} />

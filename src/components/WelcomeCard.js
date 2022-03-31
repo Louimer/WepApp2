@@ -12,13 +12,13 @@ export default function WelcomeCard({ post }) {
       </div>
       <div className="welcome-msg">
         <h2>
-          Hej, <UserName />!
+          Hej, Louise! <UserName />
         </h2>
         <p>
           {" "}
-          Her skal stå hvor flot du har gjort rent i dag.
+          Du har allerede klaret 5 af de opgaver du har til ugen - sådan!
           <br />
-          Du mangler kun hundrede opgaver, så er du i mål!
+          
         </p>
         <div className="ProgressBar">
           {taskData.map((item, idx) => (

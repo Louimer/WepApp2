@@ -3,27 +3,28 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
+     //saveGT og GT er props der sendes med videre til GroupUpdatePage
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
   const [date, setDate] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (grouptask) {
+    if (grouptask) {  // grouptask er prop der er passed til updatepage. useEffekt læser hver gang der ændres i grouptasks. 
       setTitle(grouptask.title);
     }
   }, [grouptask]);
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); //håndtere hver gang der gemmes 
 
-    const grouptaskData = {
+    const grouptaskData = { //definerer et nyt objekt, til at holde values fra inputfelt. 
       title: title,
       person: person,
       date: date,
     };
-    saveGroupTask(grouptaskData);
-    navigate("/");
+    saveGroupTask(grouptaskData); //gemmer Grouptask
+    navigate("/"); //navigere tilbage til forside, efter submit
   }
 
   return (
