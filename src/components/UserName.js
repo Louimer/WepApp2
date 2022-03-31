@@ -3,7 +3,7 @@ import { doc, getDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import { getAuth } from "firebase/auth";
 
-
+// ----- User Name Component made by Sofie
 export default function UserName({ uid }) {
     const [user, setUser] = useState({
         name: "Name"
@@ -19,9 +19,8 @@ export default function UserName({ uid }) {
                 setUser(prevUser => ({ ...prevUser, ...docSnap.data() }));
             }
         }
-    }
-    getUser();
-    }, [auth.currentUser]);
+    } getUser();
+}, [auth.currentUser]);
 
     return (
             <span className="user-name">{user.name}</span>

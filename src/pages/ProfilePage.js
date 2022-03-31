@@ -5,7 +5,7 @@ import { doc, getDoc, setDoc } from "@firebase/firestore";
 import placerholder from "../assets/profile-picture.jpg";
 import { HiMinusCircle } from "react-icons/hi";
 
-
+// ----- Profile Page made by Sofie
 export default function ProfilePage({ currentUser }) {
     const [user, setUser] = useState({
         image: placerholder,
@@ -26,9 +26,9 @@ export default function ProfilePage({ currentUser }) {
         }
     }
     getUser();
-
 }, [auth.currentUser]);
 
+    // Handle when change is made to user image
     function handleImageChange(event) {
         const file = event.target.files[0];
         if (file.size < 500000) {
@@ -45,7 +45,7 @@ export default function ProfilePage({ currentUser }) {
         }
     }
 
-
+    // Handle when change is made to user details
     function handleChange(event) {
         const name = event.target.name;
         const value = event.target.value;
@@ -57,6 +57,7 @@ export default function ProfilePage({ currentUser }) {
         });
     }
 
+    // Submit change 
     async function submitEvent(event) {
         event.preventDefault();
 

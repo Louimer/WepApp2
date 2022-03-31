@@ -4,6 +4,7 @@ import { usersRef } from "../firebase-config";
 import { getAuth } from "firebase/auth";
 import placerholder from "../assets/profile-picture.jpg";
 
+// ----- User Avatar Component made by Sofie
 export default function UserAvatar({ uid }) {
     const [user, setUser] = useState({
         image: placerholder,
