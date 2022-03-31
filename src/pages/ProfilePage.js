@@ -4,6 +4,7 @@ import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 import placerholder from "../assets/profile-picture.jpg";
 import { HiMinusCircle } from "react-icons/hi";
+import { FaBell } from "react-icons/fa";
 
 // ----- Profile Page made by Sofie
 export default function ProfilePage({ currentUser }) {
@@ -28,7 +29,7 @@ export default function ProfilePage({ currentUser }) {
     getUser();
 }, [auth.currentUser]);
 
-    // Handle when change is made to user image
+    // Handle when user image is changed 
     function handleImageChange(event) {
         const file = event.target.files[0];
         if (file.size < 500000) {
@@ -45,7 +46,7 @@ export default function ProfilePage({ currentUser }) {
         }
     }
 
-    // Handle when change is made to user details
+    // Handle when user details is changed
     function handleChange(event) {
         const name = event.target.name;
         const value = event.target.value;
@@ -64,7 +65,7 @@ export default function ProfilePage({ currentUser }) {
         const userToUpdate = { name: user.name, image: user.image };
         const docRef = doc(usersRef, auth.currentUser.uid);
         await setDoc(docRef, userToUpdate);
-
+     
         console.log(userToUpdate);
     }
 
@@ -112,6 +113,12 @@ export default function ProfilePage({ currentUser }) {
                             <input type="text" value={user?.name} onChange={handleChange} name="name" placeholder="Navn" />
                         {/* <label for="email">Email</label> */}
                             <input type="email" value={user?.email} onChange={handleChange} name="email" placeholder="bruger@mail.dk" />
+
+                            <label className="notif-box">
+                                <div> <FaBell /> <p>Notifikationer</p> </div>                    
+                                <input type="checkbox" name="bellcheckbox" />           
+                            </label>
+
                         <button className="btn">Gem</button>
 
                         <div className="profile-btn-cntr">

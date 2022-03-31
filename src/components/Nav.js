@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import { MdPostAdd } from "react-icons/md";
+import { FiEdit3 } from "react-icons/fi";
 import { BsPerson } from "react-icons/bs";
-import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { FiEdit } from "react-icons/fi";
 
 export default function Nav() {
   return (
@@ -14,12 +14,12 @@ export default function Nav() {
       </NavLink>
       <NavLink to="/create">
         <h3 className="nav-icon">
-          <MdPostAdd size={30} />
+          <FiEdit3 size={30} />
         </h3>
       </NavLink>
       <NavLink to="/groupcreate">
         <h3 className="nav-icon">
-          <AiOutlineUsergroupAdd size={30} />
+          <FiEdit size={30} />
         </h3>
       </NavLink>
       <NavLink to="/profile">

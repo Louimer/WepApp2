@@ -43,6 +43,7 @@ export default function HomePage() {
       <section className="grid-container">
         <h2 className="cntr-title">Gruppe opgaver</h2>
         <div className="group-cntr">
+        <h2 className="cntr-title">Gruppe opgaver</h2>
           {grouptasks.map(
             (
               grouptask //til at kigge på array
