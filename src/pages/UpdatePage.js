@@ -4,6 +4,7 @@ import TaskForm from "../components/TaskForm";
 import { tasksRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 export default function UpdatePage() {
   const navigate = useNavigate();
@@ -30,9 +31,9 @@ export default function UpdatePage() {
   async function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${task.title}?`);
     if (confirmDelete) {
-      const docRef = doc(tasksRef, task.id);
-      navigate("/");
+      const docRef = doc(tasksRef, taskId);
       await deleteDoc(docRef);
+      navigate("/");
     }
   }
 
@@ -41,15 +42,10 @@ export default function UpdatePage() {
       <h1>Update Page</h1>
       <TaskForm saveTask={handleSubmit} task={task} />
       <div className="checkbox_delete_container">
-        <input type="checkbox" id="checkbox_delete" onClick={handleDelete} />
-        <div id="bin-icon">
-          <div id="lid"></div>
-          <div id="box">
-            <div id="box-inner">
-              <div id="bin-lines"></div>
-            </div>
-          </div>
-        </div>
+        <button onClick={handleDelete}>
+          {" "}
+          <FaRegTrashAlt size={20} />
+        </button>
       </div>
     </section>
   );

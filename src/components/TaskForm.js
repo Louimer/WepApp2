@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 export default function TaskForm({ saveTask, task }) {
   const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     if (task) {
       setTitle(task.title);
+      setDate(task.date);
     }
   }, [task]);
 
@@ -16,6 +18,7 @@ export default function TaskForm({ saveTask, task }) {
 
     const taskData = {
       title: title,
+      date: date,
     };
     saveTask(taskData);
     navigate("/");
@@ -33,6 +36,15 @@ export default function TaskForm({ saveTask, task }) {
       </label>
 
       <br></br>
+      <label className="taskform_label">
+        <h5>Vil du have en påmindelse?</h5>
+        <input
+          placeholder=""
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+      </label>
 
       <button type="submit">Gem</button>
     </form>

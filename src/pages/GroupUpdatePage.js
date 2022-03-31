@@ -4,6 +4,7 @@ import GroupTaskForm from "../components/GroupTaskForm";
 import { grouptaskRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 export default function GroupUpdatePage() {
   const navigate = useNavigate();
@@ -21,16 +22,16 @@ export default function GroupUpdatePage() {
     getGroupTask();
   }, [grouptaskId]);
 
-  async function handleSubmit(grouptaskToUpdate) {
+  async function handleSubmit(taskToUpdate) {
     const docRef = doc(grouptaskRef, grouptaskId);
-    await updateDoc(docRef, grouptaskToUpdate);
+    await updateDoc(docRef, taskToUpdate);
     navigate("/");
   } //HVORFOR UPDATER DEN IKKE
 
   async function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
     if (confirmDelete) {
-      const docRef = doc(grouptaskRef, grouptask.id);
+      const docRef = doc(grouptaskRef, grouptaskId);
       navigate("/");
       await deleteDoc(docRef);
     }
@@ -40,7 +41,11 @@ export default function GroupUpdatePage() {
     <section className="page">
       <h1>Group Update Page</h1>
       <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>
+        {" "}
+        <FaRegTrashAlt size={20} />
+        
+      </button>
     </section>
   );
 }

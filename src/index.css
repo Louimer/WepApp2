@@ -70,6 +70,7 @@ p {
 a {
   color: var(--green);
 }
+
 .react-calendar__tile abbr:active {
   background-color: #d31f5b;
 }
@@ -261,6 +262,7 @@ a {
 }
 
 .welcome-msg p {
+  padding-bottom: 10%;
   margin: 0;
 }
 
@@ -432,6 +434,17 @@ p {
   border-radius: var(--border-r);
 }
 
+.taskform_label h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+  font-weight: 400;
+}
+
 /* ---------- GRID CNTR ---------- */
 .grid-container {
   padding-bottom: 80px;
@@ -512,6 +525,10 @@ p {
   transition-duration: 0.2 linear;
   font-size: 0.9em;
   padding-top: 6%;
+}
+.todo__text p {
+  font-size: 0.7em;
+  
 }
 
 .todo {
@@ -648,6 +665,12 @@ p {
   width: 30%;
   height: 30%;
   margin: 0 auto;
+}
+.checkbox_delete_container button {
+  border: solid #882709c7;
+  background-color: #c7626236;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  font-size: 0.7em;
 }
 
 #checkbox_delete {

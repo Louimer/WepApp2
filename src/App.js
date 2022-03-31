@@ -16,6 +16,7 @@ import GroupUpdatePage from "./pages/GroupUpdatePage";
 import { WiSolarEclipse } from "react-icons/wi";
 import "./index.css";
 
+
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
@@ -57,7 +58,9 @@ function App() {
           </button>
         </div>
       </div>
+    
 
+ 
       <main>
         {isAuth ? (
           <>

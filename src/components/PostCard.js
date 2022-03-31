@@ -22,6 +22,8 @@ export default function PostCard({ task }) {
           <div className="postcard-elem-todotext">
             <div className="todo__text">
               <h3>{task.title}</h3>
+              <br></br>
+              <h6>{task.date}</h6>
             </div>
           </div>
 

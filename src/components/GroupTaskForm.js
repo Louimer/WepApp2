@@ -22,7 +22,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
       person: person,
       showCal: showCal,
     };
-
     saveGroupTask(grouptaskData);
     navigate("/");
   }
@@ -40,29 +39,32 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
 
       <br></br>
       <label>
-        Skal opgaven udføres en bestemt dag?
-        <input
-          placeholder=""
-          value={grouptask.showCal}
-          type="checkbox"
-          onChange={() => setShowCal((prevShowCal) => !prevShowCal)}
-        />
-        {showCal && <Calendar />}
-      </label>
-
-      <label>
-        Hvordan skal opgaven fordeles
         <select
           placeholder=""
           value={person}
           onChange={(e) => setPerson(e.target.value)}
         >
-          <option value="">Person 1</option>
-          <option value="">Person 2</option>
-          <option value="">Person 3</option>
-          <option value="">Person 4</option>
+          <option value="">Hvordan skal opgaven fordeles?</option>
+          <option value="Sofie">Sofie</option>
+         
+            <option value="Christian"> Christian </option>
+         
+          <option value="Louise">Louise</option>
+          <option value="Bille">Bille</option>
         </select>
       </label>
+      <br></br>
+      <label>
+        Skal opgaven udføres en bestemt dag?
+        <input
+          placeholder=""
+          value={showCal}
+          type="checkbox"
+          onChange={(e) => setShowCal((prevShowCal) => !prevShowCal)}
+        />
+        {showCal && <Calendar />}
+      </label>
+
       <button type="submit">Gem</button>
     </form>
   );

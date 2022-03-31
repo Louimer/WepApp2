@@ -6,7 +6,7 @@ export default function GroupPostCard({ grouptask }) {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`groupupdate/${grouptask.id}`);
+    navigate(`/groupupdate/${grouptask.id}`);
   }
 
   return (
@@ -23,7 +23,7 @@ export default function GroupPostCard({ grouptask }) {
             <div className="todo__text">
               <h3>{grouptask.title}</h3>
               <h3>{grouptask.showCal}</h3>
-              <h3>{grouptask.person}</h3>
+              <p>{grouptask.person}</p>
             </div>
           </div>
 
