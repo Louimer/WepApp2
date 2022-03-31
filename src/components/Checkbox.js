@@ -51,7 +51,7 @@ export default function Checkbox() {
             className="todo__icon"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsxlink="http://www.w3.org/1999/xlink"
-            viewBox="0 10 130 20"
+            viewBox="0 15 130 20"
             class="todo__icon"
           >
             <use xlinkHref="#todo__line" className="todo__line"></use>

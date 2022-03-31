@@ -363,7 +363,7 @@ nav {
 nav a {
   display: inline-block;
   color: var(--txt-clr-l);
-  padding: 10px 23px;
+  padding: 0px 27px;
 }
 
 nav a:hover {
@@ -513,14 +513,16 @@ p {
   width: 30%;
   height: 20%;
 }
-.svg_container {
+/* .svg_container {
   display: block;
   width: 100%;
-  height: 25%;
-}
+  height: 40%;
+  border: solid #;
+} */
 
 .checkbox_svg {
   height: 1vh;
+  margin-top: -10%;
 }
 
 .todo__text h3 {
@@ -536,7 +538,7 @@ p {
 .todo {
   display: block;
   position: absolute;
-  height: 20vh;
+  height: 18vh;
   width: 35vh;
   cursor: pointer;
   border-bottom: solid 1px #ddd;
@@ -550,10 +552,10 @@ p {
   border-bottom: none;
 }
 .todo__state {
-  position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
+  padding-bottom: 5%;
 }
 .group-cntr article h3 {
   text-align: left;
@@ -561,8 +563,8 @@ p {
 .todo__icon {
   z-index: 0;
   width: 90%;
-  height: 40%;
-  margin: auto;
+  height: 60%;
+  margin-top: -8%;
   fill: none;
   stroke: #4e27fd;
   stroke-width: 2;
@@ -613,7 +615,7 @@ p {
   stroke-dasharray: 56.1053, 56.1053;
   stroke-dashoffset: 0;
   transition-delay: 0.16s;
-  height: 20px;
+  height: 30px;
 }
 .todo__check {
   stroke: #27fdc7;
@@ -854,39 +856,6 @@ p {
 }
 
 /* --- CREATE GROUP TASK PAGE */
-
-/* --- Calendar componenet styling */
-
-.react-calendar__navigation button {
-  color: var(--txt-clr-l);
-  background-color: var(--background);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.4em 0.8em;
-  font-size: 0.8em;
-  border-radius: 1px;
-}
-
-.react-calendar__tile {
-  color: var(--txt-clr-l);
-  background-color: var(--background);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.4em 0.8em;
-  font-size: 0.8em;
-  border-radius: 1px;
-}
-
-.react-calendar:active {
-  display: block;
-}
-
-.react-calendar__navigation {
-  display: flex;
-}
-.react-calendar button:active {
-  background-color: rgb(3, 219, 208);
-}
 
 select {
   -webkit-appearance: none;
