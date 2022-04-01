@@ -86,7 +86,7 @@ export default function ProfilePage({ currentUser }) {
   // Delete user handler
   function handleUserDelete() {
     const auth = getAuth();
-    const user = auth.currentUser;
+    const user = auth.currentUser.uid;
 
     // If session expired, reauthenticate user credentials
     const credentials = EmailAuthProvider.credential(
@@ -102,7 +102,7 @@ export default function ProfilePage({ currentUser }) {
       });
   }
 
-  console.log(auth.currentuser, name, image);
+  console.log(auth.currentUser, name, image);
 
   return (
     <section className="page">
@@ -166,7 +166,7 @@ export default function ProfilePage({ currentUser }) {
             <button
               className="btn-outline"
               onClick={handleUserDelete}
-              // data-id={id}
+              // data-id={uid}
             >
               Slet bruger
             </button>
