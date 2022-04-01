@@ -4,7 +4,8 @@ import { usersRef } from "../firebase-config";
 import { getAuth } from "firebase/auth";
 import placerholder from "../assets/profile-picture.jpg";
 
-export default function UserAvatar({ uid }) {
+// By Sofie
+export default function UserAvatar({ currentUser }) {
   const [user, setUser] = useState({
     image: placerholder,
     name: "Users Name",
@@ -20,7 +21,8 @@ export default function UserAvatar({ uid }) {
       }
     }
     getUser();
-  }, [auth.currentUser.uid]);
+  }, [auth.currentUser]);
+  console.log(currentUser)
 
   return (
     <div className="avatar">

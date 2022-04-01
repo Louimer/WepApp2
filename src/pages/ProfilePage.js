@@ -7,10 +7,13 @@ import { HiMinusCircle } from "react-icons/hi";
 import { FaBell } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+// By Sofie
 export default function ProfilePage({ currentUser }) {
-  const [user, setUser] = useState({
-    image: placerholder,
-  });
+  // const [user, setUser] = useState({
+  //   image: placerholder,
+  // });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const auth = getAuth();
@@ -19,11 +22,14 @@ export default function ProfilePage({ currentUser }) {
   useEffect(() => {
     async function getUser() {
       if (auth.currentUser) {
-        setUser(auth.currentUser);
+        setEmail(auth.currentUser.email);
         const docRef = doc(usersRef, auth.currentUser.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.data()) {
-          setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
+        const userData = (await getDoc(docRef)).data();        
+        // const docSnap = await getDoc(docRef);
+        if (userData) {
+          // setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
+          setName(userData.name);
+          setImage(userData.image || 'placeholder');
         }
       }
     }
@@ -46,28 +52,31 @@ export default function ProfilePage({ currentUser }) {
     }
   }
 
-  function handleChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-    setUser((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
-    });
-  }
+  // function handleChange(event) {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setUser((prevFormData) => {
+  //     return {
+  //       ...prevFormData,
+  //       [name]: value,
+  //     };
+  //   });
+  // }
 
   async function submitEvent(event) {
     event.preventDefault();
 
-    const userToUpdate = { name: user.name, image: user.image };
-
+    const userToUpdate = { name: name, image: image };
+    console.log(userToUpdate)
     const docRef = doc(usersRef, auth.currentUser.uid);
-    navigate("/");
+    
     await setDoc(docRef, userToUpdate);
-
+    navigate("/");
     console.log(userToUpdate);
   }
+
+
+
 
   // Sign out
   function handleSignOut() {
@@ -93,7 +102,7 @@ export default function ProfilePage({ currentUser }) {
       });
   }
 
-  console.log(user.uid, auth.currentuser, user.name, user.image);
+  console.log(auth.currentuser, name, image);
 
   return (
     <section className="page">
@@ -104,7 +113,7 @@ export default function ProfilePage({ currentUser }) {
             <div className="user-img">
               <img
                 src={image}
-                alt={user.image}
+                alt={image}
                 onError={(event) => (event.target.src = placerholder)}
               />
             </div>
@@ -126,16 +135,16 @@ export default function ProfilePage({ currentUser }) {
           {/* <label for="name">Navn</label> */}
           <input
             type="text"
-            value={user?.name}
-            onChange={handleChange}
+            value={name}
+            onChange={e => setName(e.target.value)}
             name="name"
             placeholder="Navn"
           />
           {/* <label for="email">Email</label> */}
           <input
             type="email"
-            value={user?.email}
-            onChange={handleChange}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             name="email"
             placeholder="bruger@mail.dk"
           />
@@ -151,13 +160,13 @@ export default function ProfilePage({ currentUser }) {
           <button className="btn">Gem</button>
 
           <div className="profile-btn-cntr">
-            <button className="btn" onClick={handleSignOut} data-id={user.id}>
+            <button className="btn" onClick={handleSignOut} /*data-id={user.id}*/>
               Log ud
             </button>
             <button
               className="btn-outline"
               onClick={handleUserDelete}
-              data-id={user.id}
+              // data-id={id}
             >
               Slet bruger
             </button>
@@ -166,33 +175,33 @@ export default function ProfilePage({ currentUser }) {
       </div>
 
       <div className="profile-page">
-        <form onSubmit={submitEvent}>
+        <form >
           <h3>Min gruppe</h3>
           {/* <p>Gruppemedlemmer</p> */}
           <div className="group-members-box">
             <div className="user-img">
-              <img src={user?.image} alt={user.id} />
+              <img src={image} alt=""/>
             </div>
             <div className="group-members-details">
               <input
                 type="text"
                 className="group-member"
-                value={user?.name}
+                value={name}
                 name="name"
-                placeholder={`${user?.name}`}
+                placeholder={`${name}`}
               />
               <input
                 type="email"
                 className="group-member"
-                value={user?.email}
+                value={email}
                 name="email"
-                placeholder={`${user?.email}`}
+                placeholder={`${email}`}
               />
             </div>
             <button
               className="remove-btn"
-              onClick={handleUserDelete}
-              data-id={user.id}
+              // onClick={handleUserDelete}
+              data-id=""
             >
               <HiMinusCircle />
             </button>
@@ -200,28 +209,28 @@ export default function ProfilePage({ currentUser }) {
 
           <div className="group-members-box">
             <div className="user-img">
-              <img src={user?.image} alt={user.id} />
+              <img src={image} alt="" />
             </div>
             <div className="group-members-details">
               <input
                 type="text"
                 className="group-member"
-                value={user?.name}
+                value={name}
                 name="name"
                 placeholder="Gruppemedlem"
               />
               <input
                 type="email"
                 className="group-member"
-                value={user?.email}
+                value={email}
                 name="email"
                 placeholder="medlem@email.dk"
               />
             </div>
             <button
               className="remove-btn"
-              onClick={handleUserDelete}
-              data-id={user.id}
+              // onClick={handleUserDelete}
+              /*data-id={user.id}*/
             >
               {" "}
               <HiMinusCircle />{" "}
@@ -231,28 +240,28 @@ export default function ProfilePage({ currentUser }) {
 
           <div className="group-members-box">
             <div className="user-img">
-              <img src={user?.image} alt={user.id} />
+              <img src={image} alt="" />
             </div>
             <div className="group-members-details">
               <input
                 type="text"
                 className="group-member"
-                value={user?.name}
+                value={name}
                 name="name"
                 placeholder="Gruppemedlem"
               />
               <input
                 type="email"
                 className="group-member"
-                value={user?.email}
+                value={email}
                 name="email"
                 placeholder="medlem@email.dk"
               />
             </div>
             <button
               className="remove-btn"
-              onClick={handleUserDelete}
-              data-id={user.id}
+              // onClick={handleUserDelete}
+              //data-id={user.id}
             >
               {" "}
               <HiMinusCircle />{" "}

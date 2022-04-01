@@ -4,15 +4,16 @@ import ProgressBar from "./ProgressBar.js";
 
 const taskData = [{ bgcolor: "#50C878", completed: 60 }];
 
+// By Sofie
 export default function WelcomeCard({ post }) {
   return (
     <article className="welcome-card">
       <div className="welcome-userimg">
-        <UserImg />
+        <UserImg /> 
       </div>
       <div className="welcome-msg">
         <h2>
-          Hej, Louise! <UserName />
+          Hej, <UserName />!
         </h2>
         <p>
           {" "}

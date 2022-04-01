@@ -3,6 +3,7 @@ import { doc, getDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import placerholder from "../assets/profile-picture.gif";
 
+// By Sofie
 export default function User({ uid }) {
     const [user, setUser] = useState({
         image: placerholder

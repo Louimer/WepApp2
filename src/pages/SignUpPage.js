@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+// By Sofie
 export default function SignUpPage() {
   const [errorMessage, setErrorMessage] = React.useState("");
   const navigate = useNavigate();
