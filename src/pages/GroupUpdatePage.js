@@ -1,9 +1,13 @@
+//Louise
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GroupTaskForm from "../components/TaskForm";
-import { groupTaskRef } from "../firebase-config";
+import GroupTaskForm from "../components/GroupTaskForm";
+import { grouptaskRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
+import { FaRegTrashAlt } from "react-icons/fa";
+import {  AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function GroupUpdatePage() {
   const navigate = useNavigate();
@@ -14,31 +18,39 @@ export default function GroupUpdatePage() {
 
   useEffect(() => {
     async function getGroupTask() {
-      const docRef = doc(groupTaskRef, grouptaskId);
+      const docRef = doc(grouptaskRef, grouptaskId);
       const docData = await getDoc(docRef);
-      setGroupTask(docData.data);
+      setGroupTask(docData.data());
     }
     getGroupTask();
   }, [grouptaskId]);
 
-  function handleSubmit(grouptaskToUpdate) {
-    const docRef = doc(groupTaskRef, grouptaskId);
-    updateDoc(docRef, grouptaskToUpdate);
+  async function handleSubmit(taskToUpdate) {
+    const docRef = doc(grouptaskRef, grouptaskId);
+    await updateDoc(docRef, taskToUpdate);
     navigate("/");
-  }
-  function handleDelete() {
+  } //
+
+  async function handleDelete() {
     const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
     if (confirmDelete) {
-      const docRef = doc(groupTaskRef, grouptask.id);
-      deleteDoc(docRef);
+      const docRef = doc(grouptaskRef, grouptaskId);
+      navigate("/");
+      await deleteDoc(docRef);
     }
   }
 
   return (
     <section className="page">
-      <h1>Group Update Page</h1>
-      <GroupTaskForm savegroupTask={handleSubmit} grouptask={grouptask} />
-      <button onClick={handleDelete}>Delete</button>
+      <h1>Rediger gruppeopgave</h1>
+      <Link to="/"><AiOutlineArrowLeft size={30} />  <br></br></Link> 
+        <br></br>
+
+      <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
+      <button onClick={handleDelete}>
+        {" "}
+        <FaRegTrashAlt size={20} />
+      </button>
     </section>
   );
 }

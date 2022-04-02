@@ -1,23 +1,30 @@
-import { useState } from "react";
-import { addDoc, serverTimestamp } from "@firebase/firestore";
-import { grouptaskRef } from "../firebase-config";
-import { Calendar } from "react-calendar";
+//Louise
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function GroupTaskForm() {
+export default function GroupTaskForm({ saveGroupTask, grouptask }) {
+     //saveGT og GT er props der sendes med videre til GroupUpdatePage
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
-  const [showCal, setShowCal] = useState(false);
+  const [date, setDate] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (grouptask) {  // grouptask er prop der er passed til updatepage. useEffekt læser hver gang der ændres i grouptasks. 
+      setTitle(grouptask.title);
+    }
+  }, [grouptask]);
 
   function handleSubmit(event) {
-    event.preventDefault();
-    const newGroupTask = {
+    event.preventDefault(); //håndtere hver gang der gemmes 
+
+    const grouptaskData = { //definerer et nyt objekt, til at holde values fra inputfelt. 
       title: title,
       person: person,
-      uid: "",
-      createdAt: serverTimestamp(),
+      date: date,
     };
-    addDoc(grouptaskRef, newGroupTask);
-    console.log(newGroupTask);
+    saveGroupTask(grouptaskData); //gemmer Grouptask
+    navigate("/"); //navigere tilbage til forside, efter submit
   }
 
   return (
@@ -33,30 +40,32 @@ export default function GroupTaskForm() {
 
       <br></br>
       <label>
-        Skal opgaven udføres en bestemt dag?
-        <input
-          placeholder=""
-          value={showCal}
-          type="checkbox"
-          onChange={() => setShowCal((prevShowCal) => !prevShowCal)}
-        />
-        {showCal && <Calendar />}
-      </label>
-
-      <label>
-        Hvordan skal opgaven fordeles
         <select
           placeholder=""
           value={person}
           onChange={(e) => setPerson(e.target.value)}
         >
-          <option value="">Person 1</option>
-          <option value="">Person 2</option>
-          <option value="">Person 3</option>
-          <option value="">Person 4</option>
+          <option value="">Hvordan skal opgaven fordeles?</option>
+          <option value="Sofie">Sofie</option>
+
+          <option value="Christian"> Christian </option>
+
+          <option value="Louise">Louise</option>
+          <option value="Fælles opgave">Fælles opgave</option>
         </select>
       </label>
-      <button type="submit">Opret ny opgave</button>
+      <br></br>
+      <label>
+        Skal opgaven udføres en bestemt dag?
+        <input
+          placeholder=""
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+      </label>
+
+      <button type="submit">Gem</button>
     </form>
   );
 }

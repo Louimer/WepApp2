@@ -1,36 +1,60 @@
+//Louise
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TaskForm from "../components/TaskForm";
 import { tasksRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
-import { doc, getDoc, updateDoc } from "@firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function UpdatePage() {
   const navigate = useNavigate();
   const params = useParams();
-  const [task, setTasks] = useState({});
-  const taskId = params.id;
+  const [task, setTasks] = useState({}); //useState bruges til at tracke state i komponent. UseState lytter på om der ændres noget. Ses som en variable for en komponent. 
+  const taskId = params.id; //url parameter 
   console.log(taskId);
 
   useEffect(() => {
     async function getTask() {
       const docRef = doc(tasksRef, taskId);
-      const docData = await getDoc(docRef);
-      setTasks(docData.data);
+      // laver en doc.reference, fra taskId fra url
+      const docData = await getDoc(docRef);//venter på funktionen returnere docref
+      setTasks(docData.data());
     }
     getTask();
   }, [taskId]);
 
-  function handleSubmit(taskToUpdate) {
+  async function handleSubmit(taskToUpdate) {
     const docRef = doc(tasksRef, taskId);
-    updateDoc(docRef, taskToUpdate);
-    navigate("/");
+    await updateDoc(docRef, taskToUpdate); //samme som ovenover-ish, funktion til når der gemmes ^^
+    navigate("/"); 
+  }
+
+  async function handleDelete() {
+    const confirmDelete = window.confirm(`Delete, ${task.title}?`);  
+    if (confirmDelete) {
+      const docRef = doc(tasksRef, taskId);
+      await deleteDoc(docRef);
+      navigate("/");
+    }
   }
 
   return (
     <section className="page">
-      <h1>Update Page</h1>
+      <h1>Rediger opgave</h1>
+      <Link to="/">
+        <AiOutlineArrowLeft size={30} /> <br></br>
+      </Link>
+      <br></br>
       <TaskForm saveTask={handleSubmit} task={task} />
+      <div className="checkbox_delete_container">
+        <button onClick={handleDelete}>
+          {" "}
+          <FaRegTrashAlt size={20} />
+        </button>
+      </div>
     </section>
   );
 }
